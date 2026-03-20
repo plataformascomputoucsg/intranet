@@ -15,8 +15,8 @@ function App() {
       <NavBar />
 
       {/* 4. Contenido Principal */}
-      <div className="flex flex-col items-start gap-[22px] relative w-full px-4 xl:px-[10%] max-w-[1920px] mx-auto z-10 grow mb-8">
-        <div className="flex flex-col xl:flex-row items-stretch gap-[27px] relative self-stretch w-full">
+      <div className="flex flex-col items-start gap-[22px] relative w-full px-4 lg:px-[10%] max-w-[1920px] mx-auto z-10 grow mb-8">
+        <div className="flex flex-col lg:flex-row items-stretch gap-[27px] relative self-stretch w-full">
           <NewsSection />
           <EventsSection />
         </div>

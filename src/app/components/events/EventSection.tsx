@@ -15,7 +15,7 @@ const EventsSection: React.FC<EventsSectionProps> = ({
   tipSitio = 1
 }) => {
   return (
-    <div className="flex flex-col w-full xl:w-1/3 items-stretch gap-[15px] relative h-full">
+    <div className="flex flex-col w-full lg:w-1/3 items-stretch gap-[15px] relative h-full">
       <HeaderTitle
         titleFirstWorld="Últimos"
         titleSecondWorld="EVENTOS"
