@@ -31,7 +31,9 @@ const HeroNewsContent: React.FC<HeroNewsContentProps> = async ({
   // - Primeras 2: small cards (columna izquierda arriba)
   // - Tercera: hero image grande
   // - 4-6: medium cards (fila inferior)
-  const smallNewsItems = comunicaciones.slice(0, 2)
+  const smallNewsItems = comunicaciones.filter(
+    (c) => c.subseccion === 'side_news'
+  )
   const isHeroFromThird = !!comunicaciones[2]
   const heroNews = comunicaciones[2] || comunicaciones[0]
   const bottomNewsItems = comunicaciones.filter(

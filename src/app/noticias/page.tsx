@@ -9,7 +9,6 @@ import Footer from '../components/layout/Footer'
 import NewsMainSection from '../components/news/NewsMainSection'
 import HeroNewsSection from '../components/news/HeroNewsSection'
 import BottomNewsSection from '../components/news/BottomNewsSection'
-import InstagramFeed from '../components/social/InstagramFeed'
 
 export const dynamic = 'force-dynamic'
 
@@ -42,11 +41,11 @@ export default async function NewsPage() {
         {/* <GestorBanner /> */}
         <HeroNewsSection />
         <BottomNewsSection />
-        <div className="flex flex-col items-start gap-5 w-full">
+        {/* <div className="flex flex-col items-start gap-5 w-full">
           <div className="w-full h-full border rounded-xl">
             <InstagramFeed />
           </div>
-        </div>
+        </div> */}
       </div>
 
       <Footer />

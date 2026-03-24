@@ -1,5 +1,4 @@
-import MainNews from './MainNews'
-import GridNews from './GridNews'
+import SideNewsCard from './SideNewsCard'
 import { getComunicacionesEspecificas } from '@/app/lib/api'
 
 interface NewsContentProps {
@@ -19,12 +18,7 @@ const NewsContent: React.FC<NewsContentProps> = async ({
     tipSitio
   })
 
-  // Primer elemento para MainNews
-  const mainNewsItem = comunicaciones[0]
-  // Del índice 1 en adelante para GridNews
-  const gridNewsItems = comunicaciones.slice(1)
-
-  if (!mainNewsItem) {
+  if (!comunicaciones || comunicaciones.length === 0) {
     return (
       <div className="w-full h-full flex items-center justify-center text-gray-500">
         No hay noticias disponibles
@@ -33,10 +27,11 @@ const NewsContent: React.FC<NewsContentProps> = async ({
   }
 
   return (
-    <>
-      <MainNews news={mainNewsItem} />
-      {gridNewsItems.length > 0 && <GridNews newsItems={gridNewsItems} />}
-    </>
+    <div className="flex flex-col gap-6 w-full">
+      {comunicaciones.map((item, idx) => (
+        <SideNewsCard key={idx} news={item} />
+      ))}
+    </div>
   )
 }
 

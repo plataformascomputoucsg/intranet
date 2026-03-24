@@ -1,11 +1,14 @@
 'use client'
 import { useState, useMemo, useDeferredValue } from 'react'
+import Image from 'next/image'
 import MonthCarousel from '../shared/MonthCarousel'
 import SearchInput from '../ui/SearchInput'
 import BirthdayMainCalendar from './BirthdayMainCalendar'
 import { BirthdayBackground } from './BirthdayBackground'
 import ClientOnly from '../ui/ClientOnly'
 import { Birthday } from '../../types/birthday'
+// @ts-ignore
+import birthdayImg from '@/assets/images/birthday_img.png'
 
 interface BirthdayMainSectionProps {
   birthdays: Birthday[]
@@ -18,15 +21,12 @@ const BirthdayMainSection: React.FC<BirthdayMainSectionProps> = ({
   initialMonth,
   currentMonthIndex
 }) => {
-  // Initialize with initialMonth prop
   const [selectedMonth, setSelectedMonth] = useState<string>(initialMonth)
   const [searchQuery, setSearchQuery] = useState('')
   const deferredSearchQuery = useDeferredValue(searchQuery)
 
-  // Use deferred value for filtering logic to unblock UI updates
   const isSearching = deferredSearchQuery.trim().length > 0
 
-  // Memoize filtered results to avoid re-calculation on every render
   const filteredBirthdays = useMemo(() => {
     return birthdays.filter((birthday) => {
       // Always filter by selected month
@@ -49,26 +49,42 @@ const BirthdayMainSection: React.FC<BirthdayMainSectionProps> = ({
 
   return (
     <div className="flex flex-col w-full items-start gap-[15px] relative">
-      <div className="relative w-full h-[635px] rounded-[20px] overflow-hidden shadow-[0px_10px_30px_#00000012] bg-white z-0">
+      <div className="relative w-full flex flex-col lg:flex-row rounded-[20px] overflow-hidden shadow-[0px_10px_30px_#00000012] bg-white z-0 min-h-[635px]">
         <ClientOnly>
           <BirthdayBackground />
         </ClientOnly>
-        <div className="w-full h-full flex rounded-[0px_0px_var(--demo-edublink-co-radius-4)_var(--demo-edublink-co-radius-4)]">
-          <div className="mt-[22.3px] w-full h-auto px-4 flex-col items-start gap-7 flex relative">
-            <MonthCarousel
-              selectedMonth={selectedMonth}
-              onMonthSelect={handleMonthSelect}
-              currentMonthIndex={currentMonthIndex}
+        {/* Left Column - Image */}
+        <div className="hidden lg:flex w-full lg:w-[40%] xl:w-[35%] relative bg-rose-50/20 items-center justify-center p-8">
+          <div className="relative w-full h-full min-h-[500px]">
+            <Image
+              src={birthdayImg}
+              alt="Feliz Cumpleaños"
+              fill
+              className="object-contain"
+              priority
             />
-            <div className="w-full flex justify-start items-start">
-              <div className="h-full w-1/2">
-                <SearchInput
-                  value={searchQuery}
-                  onChange={setSearchQuery}
-                  className="w-full h-full px-3"
-                />
-              </div>
+          </div>
+        </div>
+
+        {/* Right Column - Content */}
+        <div className="w-full lg:w-[60%] xl:w-[65%] flex flex-col p-6 lg:p-10 relative mt-2">
+          <MonthCarousel
+            selectedMonth={selectedMonth}
+            onMonthSelect={handleMonthSelect}
+            currentMonthIndex={currentMonthIndex}
+          />
+
+          <div className="w-full flex justify-start items-center mt-6 mb-8">
+            <div className="w-full">
+              <SearchInput
+                value={searchQuery}
+                onChange={setSearchQuery}
+                className="w-full h-full px-4"
+              />
             </div>
+          </div>
+
+          <div className="w-full flex-1">
             <BirthdayMainCalendar
               birthdays={filteredBirthdays}
               showMonth={false}

@@ -15,7 +15,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({
   tipSitio = 1
 }) => {
   return (
-    <div className="flex flex-col w-full lg:w-2/3 items-stretch gap-[15px] relative h-full">
+    <div className="flex flex-col w-full items-stretch gap-[15px] relative h-full">
       <HeaderTitle
         titleFirstWorld="Últimas"
         titleSecondWorld="NOTICIAS"

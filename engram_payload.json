@@ -1,0 +1,7 @@
+{
+  "title": "Stack Overview for ucsg-intranet",
+  "type": "architecture",
+  "scope": "project",
+  "topic_key": "architecture/stack-overview",
+  "content": "What: Detailed stack analysis for the ucsg-intranet frontend project.\nWhy: To establish a base understanding of the technologies and frameworks used.\nWhere: Root directory (package.json, docker-compose.yml), src/app/ (Next.js components and logic).\nLearned:\n- Frontend: Next.js 16 (App Router) with React 19.2.0.\n- UI: HeroUI components, Tailwind CSS v4, Lucide React icons, Framer Motion for animations, Swiper for carousels.\n- Architecture: Client/Server components model, ISR (Incremental Static Regeneration) for news and events.\n- Backend Interaction: Consumes a REST API (defaulting to http://localhost:8080 or process.env.API_URL) for data such as communications and directory.\n- Deployment: Docker-ready, integrated with other UCSG services like SIU and Mesa de Ayuda.\n- Tools: TypeScript, pnpm, ESLint."
+}
