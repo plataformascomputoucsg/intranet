@@ -26,5 +26,5 @@ export const EmailIcon = ({ className }: { className?: string }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

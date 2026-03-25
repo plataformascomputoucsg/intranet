@@ -27,5 +27,5 @@ export const BadgeIcon = ({ className }: { className?: string }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

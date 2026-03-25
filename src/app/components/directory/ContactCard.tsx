@@ -1,52 +1,48 @@
-import { PersonIcon } from '../icons/PersonIcon'
-import { BadgeIcon } from '../icons/BadgeIcon'
-import { CallIcon } from '../icons/CallIcon'
-import { MailIcon } from '../icons/MailIcon'
-import { Contact } from '../../../types/directory'
+import { CircleUserRound } from 'lucide-react';
+import { PersonIcon } from '../icons/PersonIcon';
+import { BadgeIcon } from '../icons/BadgeIcon';
+import { CallIcon } from '../icons/CallIcon';
+import { MailIcon } from '../icons/MailIcon';
+import { Contact } from '../../../types/directory';
 
 interface ContactCardProps {
-  contact: Contact
+  contact: Contact;
 }
 
 const ContactCard = ({ contact }: ContactCardProps) => {
   return (
-    <div className="w-full h-48 flex p-3.5 relative bg-white rounded-[5px] shadow-[0px_0px_11.600000381469727px_0px_rgba(128,128,128,0.25)] border-l-[3px] border-rose-800/90">
-      <div className="w-full justify-between align-start relative flex flex-col items-start gap-3">
-        <div className="h-8 inline-flex justify-start items-center gap-1.5">
-          <PersonIcon className="w-6 h-6" />
-          <div className="flex-1 flex justify-start items-start">
-            <div className="w-full justify-start text-neutral-900 text-sm font-normal font-['Poppins'] leading-4">
-              {contact.nombres} {contact.apellidos}
-            </div>
-          </div>
+    <div className="flex flex-col gap-2 rounded-[5px] border-t-[3px] border-rose-800/90 bg-white shadow-[0px_0px_11.600000381469727px_0px_rgba(128,128,128,0.25)]">
+      <div className="flex items-center justify-center px-5 pt-5">
+        <div className="flex items-center justify-center w-32 h-32 rounded-full shrink-0 bg-zinc-100">
+          <CircleUserRound className="w-24 h-24 text-zinc-400" strokeWidth={1.25} />
         </div>
-        <div className="h-8 inline-flex justify-start items-center gap-1.5">
-          <BadgeIcon className="w-6 h-6" />
-          <div className="flex-1 flex justify-start items-start">
-            <div className="w-full justify-start text-neutral-900 text-sm font-normal font-['Poppins'] leading-4">
-              {contact.cargo}
-            </div>
-          </div>
+      </div>
+      <div className="flex items-start gap-1.5 px-5">
+        <PersonIcon className="mt-0.5 h-5 w-5 shrink-0" />
+        <div className="font-['Poppins'] text-sm leading-4 font-normal text-neutral-900">
+          {contact.nombres} {contact.apellidos}
         </div>
-        <div className="h-8 inline-flex justify-start items-center gap-1.5">
-          <CallIcon className="w-6 h-6" />
-          <div className="flex-1 flex justify-start items-start">
-            <div className="w-full justify-start text-neutral-900 text-sm font-normal font-['Poppins'] leading-4">
-              {contact.extension}
-            </div>
-          </div>
+      </div>
+      <div className="flex items-start gap-1.5 px-5">
+        <BadgeIcon className="mt-0.5 h-5 w-5 shrink-0" />
+        <div className="font-['Poppins'] text-sm leading-4 font-normal text-neutral-900">
+          {contact.cargo}
         </div>
-        <div className="h-8 inline-flex justify-start items-center gap-1.5">
-          <MailIcon className="w-6 h-6" />
-          <div className="flex-1 flex justify-start items-start">
-            <div className="w-full justify-start text-neutral-900 text-sm font-normal font-['Poppins'] leading-4 break-all">
-              {contact.correo}
-            </div>
-          </div>
+      </div>
+      <div className="flex items-start gap-1.5 px-5">
+        <CallIcon className="mt-0.5 h-5 w-5 shrink-0" />
+        <div className="font-['Poppins'] text-sm leading-4 font-normal text-neutral-900">
+          {contact.extension}
+        </div>
+      </div>
+      <div className="flex items-start gap-1.5 px-5 pb-4">
+        <MailIcon className="mt-0.5 h-5 w-5 shrink-0" />
+        <div className="font-['Poppins'] text-sm leading-4 font-normal break-all text-rose-800 underline">
+          {contact.correo}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ContactCard
+export default ContactCard;

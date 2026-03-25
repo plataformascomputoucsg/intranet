@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 export const BirthdayBackground = React.memo(() => {
   return (
-    <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+    <div className="pointer-events-none absolute top-0 left-0 -z-10 h-full w-full overflow-hidden">
       {/* <svg
         className="absolute top-0 left-0 w-full h-[800px]"
         viewBox="0 0 1440 800"
@@ -16,7 +16,7 @@ export const BirthdayBackground = React.memo(() => {
         />
       </svg> */}
       <svg
-        className="absolute top-0 left-0 w-full h-full"
+        className="absolute top-0 left-0 h-full w-full"
         width="100%"
         height="100%"
         xmlns="http://www.w3.org/2000/svg"
@@ -3048,7 +3048,7 @@ export const BirthdayBackground = React.memo(() => {
         <rect width="100%" height="100%" fill="url(#birthday-pattern)" />
       </svg>
     </div>
-  )
-})
+  );
+});
 
-BirthdayBackground.displayName = 'BirthdayBackground'
+BirthdayBackground.displayName = 'BirthdayBackground';

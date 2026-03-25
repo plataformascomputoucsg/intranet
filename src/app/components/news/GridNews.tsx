@@ -1,18 +1,18 @@
-import CardNews from './CardNews'
-import { ComunicacionEspecifica } from '@/app/types/comunicaciones'
+import CardNews from './CardNews';
+import { ComunicacionEspecifica } from '@/app/types/comunicaciones';
 
 interface GridNewsProps {
-  newsItems: ComunicacionEspecifica[]
+  newsItems: ComunicacionEspecifica[];
 }
 
 const GridNews: React.FC<GridNewsProps> = ({ newsItems }) => {
   return (
-    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2">
       {newsItems.map((item) => (
         <CardNews key={item.codigo} news={item} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default GridNews
+export default GridNews;

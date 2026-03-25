@@ -1,9 +1,9 @@
-'use client' // Importante: Taggbox necesita ejecutarse en el cliente
-import Script from 'next/script'
+'use client'; // Importante: Taggbox necesita ejecutarse en el cliente
+import Script from 'next/script';
 
 export default function InstagramFeed() {
   return (
-    <div className="w-full h-full min-h-[500px]">
+    <div className="h-full min-h-[500px] w-full">
       {/* 1. El contenedor con tus IDs específicos */}
       <div
         className="taggbox"
@@ -13,10 +13,7 @@ export default function InstagramFeed() {
       ></div>
 
       {/* 2. Carga del script usando el componente de Next.js */}
-      <Script
-        src="https://widget.taggbox.com/embed.min.js"
-        strategy="lazyOnload"
-      />
+      <Script src="https://widget.taggbox.com/embed.min.js" strategy="lazyOnload" />
     </div>
-  )
+  );
 }

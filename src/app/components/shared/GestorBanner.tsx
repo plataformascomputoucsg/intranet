@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { Button } from '@heroui/button'
+import { Button } from '@heroui/button';
 
 const GestorBanner: React.FC = () => {
   return (
-    <div className="w-full h-56 flex flex-col justify-center items-center bg-ucsg-cuarto rounded-xl gap-4">
-      <div className="w-full inline-flex justify-center items-center gap-3.5">
-        <div className="w-full flex gap-2 justify-center items-center relative">
-          <div className="relative justify-start text-neutral-900 text-xl font-bold font-['Poppins'] leading-6">
+    <div className="bg-ucsg-cuarto flex h-56 w-full flex-col items-center justify-center gap-4 rounded-xl">
+      <div className="inline-flex w-full items-center justify-center gap-3.5">
+        <div className="relative flex w-full items-center justify-center gap-2">
+          <div className="relative justify-start font-['Poppins'] text-xl leading-6 font-bold text-neutral-900">
             ¿Tienes dudas sobre algún{''}
             <div
               className="absolute top-6 -left-2 z-0"
@@ -16,28 +16,28 @@ const GestorBanner: React.FC = () => {
                 height: '50px',
                 border: 'solid 2px #000',
                 borderColor: '#A81549 transparent transparent transparent',
-                borderRadius: '50% / 10px 10px 10px 0'
+                borderRadius: '50% / 10px 10px 10px 0',
               }}
             ></div>
           </div>
-          <div className="justify-start text-rose-800/90 text-xl font-bold font-['Poppins'] leading-6 tracking-wide">
+          <div className="justify-start font-['Poppins'] text-xl leading-6 font-bold tracking-wide text-rose-800/90">
             proceso o funcionalidad?
           </div>
         </div>
       </div>
-      <div className="w-full h-7 inline-flex flex-col justify-center items-center">
-        <div className="self-stretch inline-flex justify-center items-center">
-          <div className="w-full text-center justify-center text-neutral-900 text-base font-medium font-['Poppins'] leading-5">
-            Visita nuestro Gestor Documental, donde encontrarás manuales, guías
-            y documentación de apoyo para resolver tus consultas.
+      <div className="inline-flex h-7 w-full flex-col items-center justify-center">
+        <div className="inline-flex items-center justify-center self-stretch">
+          <div className="w-full justify-center text-center font-['Poppins'] text-base leading-5 font-medium text-neutral-900">
+            Visita nuestro Gestor Documental, donde encontrarás manuales, guías y documentación de
+            apoyo para resolver tus consultas.
           </div>
         </div>
       </div>
-      <Button className="bg-ucsg-primary flex justify-center items-center text-white font-normal font-['Poppins']">
+      <Button className="bg-ucsg-primary flex items-center justify-center font-['Poppins'] font-normal text-white">
         Ir al gestor documental
       </Button>
     </div>
-  )
-}
+  );
+};
 
-export default GestorBanner
+export default GestorBanner;

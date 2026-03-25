@@ -27,5 +27,5 @@ export const CallIcon = ({ className }: { className?: string }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

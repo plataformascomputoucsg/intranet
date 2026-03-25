@@ -24,9 +24,9 @@ export function generateSlug(titulo: string, codigo: number): string {
     // Elimina guiones múltiples
     .replace(/-+/g, '-')
     // Elimina guiones al inicio y final
-    .replace(/^-|-$/g, '')
+    .replace(/^-|-$/g, '');
 
-  return `${normalized}-${codigo}`
+  return `${normalized}-${codigo}`;
 }
 
 /**
@@ -38,11 +38,11 @@ export function generateSlug(titulo: string, codigo: number): string {
  * // Returns: 571
  */
 export function extractCodigoFromSlug(slug: string): number | null {
-  const parts = slug.split('-')
-  const lastPart = parts[parts.length - 1]
-  const codigo = parseInt(lastPart, 10)
+  const parts = slug.split('-');
+  const lastPart = parts[parts.length - 1];
+  const codigo = parseInt(lastPart, 10);
 
-  return isNaN(codigo) ? null : codigo
+  return isNaN(codigo) ? null : codigo;
 }
 
 /**
@@ -56,29 +56,26 @@ export function extractCodigoFromSlug(slug: string): number | null {
  * formatDate("2026-02-05T05:00:00.000+00:00", "long")
  * // Returns: "5 de febrero de 2026"
  */
-export function formatDate(
-  dateString: string,
-  format: 'short' | 'long' = 'short'
-): string {
+export function formatDate(dateString: string, format: 'short' | 'long' = 'short'): string {
   try {
-    const [year, month, day] = dateString.split('T')[0].split('-').map(Number)
-    const date = new Date(year, month - 1, day)
+    const [year, month, day] = dateString.split('T')[0].split('-').map(Number);
+    const date = new Date(year, month - 1, day);
 
     if (format === 'long') {
       return date.toLocaleDateString('es-ES', {
         day: 'numeric',
         month: 'long',
-        year: 'numeric'
-      })
+        year: 'numeric',
+      });
     }
 
     return date.toLocaleDateString('es-ES', {
       day: 'numeric',
       month: 'short',
-      year: 'numeric'
-    })
+      year: 'numeric',
+    });
   } catch {
-    return dateString
+    return dateString;
   }
 }
 
@@ -90,6 +87,6 @@ export function formatDate(
  * // Returns: "Lorem ipsum..."
  */
 export function truncateText(text: string, maxLength: number): string {
-  if (text.length <= maxLength) return text
-  return text.slice(0, maxLength).trim() + '...'
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength).trim() + '...';
 }

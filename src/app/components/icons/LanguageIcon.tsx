@@ -26,5 +26,5 @@ export const LanguageIcon = ({ className }: { className?: string }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

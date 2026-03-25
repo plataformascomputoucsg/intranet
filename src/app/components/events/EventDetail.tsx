@@ -1,27 +1,22 @@
-'use client'
+'use client';
 
-import {
-  Layers,
-  CircleUserRound,
-  Calendar,
-  Link as LinkIcon
-} from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ComunicacionEspecifica } from '@/app/types/comunicaciones'
-import { formatDate } from '@/app/lib/utils'
-import { FacebookIcon } from '../icons/FacebookIcon'
-import { TwitterIcon } from '../icons/TwitterIcon'
-import { LinkedinIcon } from '../icons/LinkedinIcon'
+import { Layers, CircleUserRound, Calendar, Link as LinkIcon } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ComunicacionEspecifica } from '@/app/types/comunicaciones';
+import { formatDate } from '@/app/lib/utils';
+import { FacebookIcon } from '../icons/FacebookIcon';
+import { TwitterIcon } from '../icons/TwitterIcon';
+import { LinkedinIcon } from '../icons/LinkedinIcon';
 
 interface EventDetailProps {
-  event: ComunicacionEspecifica
+  event: ComunicacionEspecifica;
 }
 
 const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
   return (
-    <div className="w-full relative bg-white rounded-bl rounded-[20px] p-8 flex flex-col items-center gap-8">
-      <div className="w-full relative h-[400px] md:h-[600px] rounded-[3px] overflow-hidden">
+    <div className="relative flex w-full flex-col items-center gap-8 rounded-[20px] rounded-bl bg-white p-8">
+      <div className="relative h-[400px] w-full overflow-hidden rounded-[3px] md:h-[600px]">
         <Image
           className="object-cover"
           src={event.dirImagen || 'https://placehold.co/1271x740'}
@@ -31,38 +26,38 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
         />
       </div>
 
-      <div className="w-full inline-flex flex-col justify-start items-start gap-8">
-        <div className="self-stretch flex flex-col justify-start items-start gap-6">
-          <div className="self-stretch flex flex-col justify-start items-start gap-4">
-            <div className="self-stretch justify-start text-zinc-900 text-3xl font-bold font-['Helvetica'] leading-10">
+      <div className="inline-flex w-full flex-col items-start justify-start gap-8">
+        <div className="flex flex-col items-start justify-start gap-6 self-stretch">
+          <div className="flex flex-col items-start justify-start gap-4 self-stretch">
+            <div className="justify-start self-stretch font-['Helvetica'] text-3xl leading-10 font-bold text-zinc-900">
               {event.titulo}
             </div>
-            <div className="self-stretch inline-flex justify-between items-center">
-              <div className="flex justify-start items-center gap-4">
+            <div className="inline-flex items-center justify-between self-stretch">
+              <div className="flex items-center justify-start gap-4">
                 {event.categoria && (
-                  <div className="flex justify-center items-center gap-1.5">
-                    <Layers className="w-6 h-6 text-rose-800" />
-                    <div className="justify-start text-neutral-600 text-sm font-normal font-['Helvetica'] leading-5">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <Layers className="h-6 w-6 text-rose-800" />
+                    <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
                       {event.categoria}
                     </div>
                   </div>
                 )}
                 {event.descOrganiza && (
-                  <div className="flex justify-center items-center gap-1.5">
-                    <CircleUserRound className="w-6 h-6 text-rose-800" />
-                    <div className="justify-start text-neutral-600 text-sm font-normal font-['Helvetica'] leading-5">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <CircleUserRound className="h-6 w-6 text-rose-800" />
+                    <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
                       {event.descOrganiza}
                     </div>
                   </div>
                 )}
-                <div className="flex justify-center items-center gap-1.5">
-                  <Calendar className="w-6 h-6 text-rose-800" />
-                  <div className="justify-start text-neutral-600 text-sm font-normal font-['Helvetica'] leading-5">
+                <div className="flex items-center justify-center gap-1.5">
+                  <Calendar className="h-6 w-6 text-rose-800" />
+                  <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
                     {formatDate(event.fecInicio, 'long')}
                   </div>
                 </div>
               </div>
-              <div className="flex justify-start items-start gap-2">
+              <div className="flex items-start justify-start gap-2">
                 <Link
                   href="https://www.facebook.com/UCSGye"
                   target="_blank"
@@ -72,23 +67,19 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
                     data-brands="Facebook"
                     data-circle="False"
                     data-status="True"
-                    className="p-3 bg-indigo-800 rounded-[36px] flex justify-start items-start gap-2.5 cursor-pointer hover:bg-indigo-900 transition-colors"
+                    className="flex cursor-pointer items-start justify-start gap-2.5 rounded-[36px] bg-indigo-800 p-3 transition-colors hover:bg-indigo-900"
                   >
-                    <FacebookIcon className="w-4 h-4 text-white" />
+                    <FacebookIcon className="h-4 w-4 text-white" />
                   </div>
                 </Link>
-                <Link
-                  href="https://x.com/ucatolicagye"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="https://x.com/ucatolicagye" target="_blank" rel="noopener noreferrer">
                   <div
                     data-brands="Twitter"
                     data-circle="False"
                     data-status="True"
-                    className="p-3 bg-sky-500 rounded-[36px] flex justify-start items-start gap-2.5 cursor-pointer hover:bg-sky-600 transition-colors"
+                    className="flex cursor-pointer items-start justify-start gap-2.5 rounded-[36px] bg-sky-500 p-3 transition-colors hover:bg-sky-600"
                   >
-                    <TwitterIcon className="w-4 h-4 text-white" />
+                    <TwitterIcon className="h-4 w-4 text-white" />
                   </div>
                 </Link>
                 <Link
@@ -100,30 +91,28 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
                     data-brands="Linkedin"
                     data-circle="False"
                     data-status="True"
-                    className="p-3 bg-rose-800 rounded-[36px] flex justify-start items-start gap-2.5 cursor-pointer hover:bg-rose-900 transition-colors"
+                    className="flex cursor-pointer items-start justify-start gap-2.5 rounded-[36px] bg-rose-800 p-3 transition-colors hover:bg-rose-900"
                   >
-                    <LinkedinIcon className="w-4 h-4 text-white" />
+                    <LinkedinIcon className="h-4 w-4 text-white" />
                   </div>
                 </Link>
                 <button
-                  onClick={() =>
-                    navigator.clipboard.writeText(window.location.href)
-                  }
-                  className="p-2.5 bg-slate-500 rounded-[36px] flex justify-start items-start gap-2.5 cursor-pointer hover:bg-slate-600 transition-colors"
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex cursor-pointer items-start justify-start gap-2.5 rounded-[36px] bg-slate-500 p-2.5 transition-colors hover:bg-slate-600"
                   title="Copiar enlace"
                 >
-                  <LinkIcon className="w-5 h-5 text-white" />
+                  <LinkIcon className="h-5 w-5 text-white" />
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <div className="self-stretch justify-start text-neutral-600 text-lg font-normal font-['Helvetica'] leading-6">
+        <div className="justify-start self-stretch font-['Helvetica'] text-lg leading-6 font-normal text-neutral-600">
           {event.descripcion}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EventDetail
+export default EventDetail;

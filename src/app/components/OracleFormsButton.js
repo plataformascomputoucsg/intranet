@@ -1,8 +1,8 @@
-'use client'
-import { useState } from 'react'
+'use client';
+import { useState } from 'react';
 
-import ClientOnly from './ui/ClientOnly' // Tu componente basado en useSyncExternalStore
-import { useEdgeDetector } from '../hooks/useEdgeDetector' // Tu hook de detección de Edge
+import ClientOnly from './ui/ClientOnly'; // Tu componente basado en useSyncExternalStore
+import { useEdgeDetector } from '../hooks/useEdgeDetector'; // Tu hook de detección de Edge
 import {
   Modal,
   ModalContent,
@@ -11,31 +11,29 @@ import {
   ModalFooter,
   Button,
   useDisclosure,
-  Tooltip
-} from '@heroui/react'
+  Tooltip,
+} from '@heroui/react';
 
 export default function OracleFormsButton() {
-  const isEdge = useEdgeDetector()
-  const { isOpen, onOpen, onOpenChange } = useDisclosure()
-  const [copied, setCopied] = useState(false)
+  const isEdge = useEdgeDetector();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [copied, setCopied] = useState(false);
   //const formsUrl = 'http://ofr45.ucsg:7777/forms/frmservlet?config=00001'
   //const formsUrl = 'http://ucsgofr4.ucsg:7777/forms/frmservlet?config=00001'
-  const formsUrl = process.env.NEXT_PUBLIC_SIU_URL || '#'
+  const formsUrl = process.env.NEXT_PUBLIC_SIU_URL || '#';
 
   return (
     <ClientOnly fallback={<SkeletonButton />}>
       <button
         onClick={() => {
           if (isEdge) {
-            window.open(formsUrl, '_blank')
+            window.open(formsUrl, '_blank');
           } else {
-            onOpen()
+            onOpen();
           }
         }}
-        className={`flex justify-center items-center h-full text-[10px] sm:text-xs lg:text-sm font-bold font-['Poppins'] cursor-pointer whitespace-nowrap bg-transparent border-none p-0 outline-none transition-colors ${
-          isEdge
-            ? 'text-white hover:text-gray-300'
-            : 'text-amber-400 hover:text-amber-300'
+        className={`flex h-full cursor-pointer items-center justify-center border-none bg-transparent p-0 font-['Poppins'] text-[10px] font-bold whitespace-nowrap transition-colors outline-none sm:text-xs lg:text-sm ${
+          isEdge ? 'text-white hover:text-gray-300' : 'text-amber-400 hover:text-amber-300'
         }`}
       >
         {isEdge ? 'SIU' : '⚠️ SIU (Solo Edge/Firefox 8)'}
@@ -45,18 +43,14 @@ export default function OracleFormsButton() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1 text-black">
-                Atención
-              </ModalHeader>
+              <ModalHeader className="flex flex-col gap-1 text-black">Atención</ModalHeader>
               <ModalBody>
                 <p className="text-black">
-                  Este módulo requiere abrirse en{' '}
-                  <strong>Microsoft Edge</strong> (Modo IE) o{' '}
+                  Este módulo requiere abrirse en <strong>Microsoft Edge</strong> (Modo IE) o{' '}
                   <strong>Mozilla Firefox 8</strong>.
                 </p>
                 <p className="text-sm text-gray-500">
-                  Si ya estás en uno de estos navegadores, asegúrate de la
-                  configuración.
+                  Si ya estás en uno de estos navegadores, asegúrate de la configuración.
                 </p>
               </ModalBody>
               <ModalFooter>
@@ -66,8 +60,8 @@ export default function OracleFormsButton() {
                 <Button
                   color="primary"
                   onPress={() => {
-                    window.open(`microsoft-edge:${formsUrl}`, '_blank')
-                    onClose()
+                    window.open(`microsoft-edge:${formsUrl}`, '_blank');
+                    onClose();
                   }}
                 >
                   Abrir en Edge
@@ -76,16 +70,16 @@ export default function OracleFormsButton() {
                   content={copied ? '¡Copiado!' : 'Copiar al portapapeles'}
                   isOpen={copied}
                   onOpenChange={(open) => {
-                    if (!open) setCopied(false)
+                    if (!open) setCopied(false);
                   }}
                 >
                   <Button
                     color="warning"
                     className="text-white"
                     onPress={() => {
-                      navigator.clipboard.writeText(formsUrl)
-                      setCopied(true)
-                      setTimeout(() => setCopied(false), 2000)
+                      navigator.clipboard.writeText(formsUrl);
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 2000);
                     }}
                   >
                     Copiar Enlace (Para Firefox)
@@ -97,13 +91,13 @@ export default function OracleFormsButton() {
         </ModalContent>
       </Modal>
     </ClientOnly>
-  )
+  );
 }
 
 function SkeletonButton() {
   return (
-    <div className="flex justify-center items-center h-full text-[10px] sm:text-xs lg:text-sm font-bold font-['Poppins'] text-white whitespace-nowrap">
+    <div className="flex h-full items-center justify-center font-['Poppins'] text-[10px] font-bold whitespace-nowrap text-white sm:text-xs lg:text-sm">
       ...
     </div>
-  )
+  );
 }

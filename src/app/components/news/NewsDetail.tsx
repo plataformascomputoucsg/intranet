@@ -1,70 +1,58 @@
-'use client'
+'use client';
 
-import {
-  Layers,
-  CircleUserRound,
-  Calendar,
-  Quote,
-  LinkIcon
-} from 'lucide-react'
-import Image from 'next/image'
-import { ComunicacionEspecifica } from '../../types/comunicaciones'
-import { FacebookIcon } from '../icons/FacebookIcon'
-import { TwitterIcon } from '../icons/TwitterIcon'
-import { LinkedinIcon } from '../icons/LinkedinIcon'
-import { formatDate } from '@/app/lib/utils'
-import Link from 'next/link'
+import { Layers, CircleUserRound, Calendar, Quote, LinkIcon } from 'lucide-react';
+import Image from 'next/image';
+import { ComunicacionEspecifica } from '../../types/comunicaciones';
+import { FacebookIcon } from '../icons/FacebookIcon';
+import { TwitterIcon } from '../icons/TwitterIcon';
+import { LinkedinIcon } from '../icons/LinkedinIcon';
+import { formatDate } from '@/app/lib/utils';
+import Link from 'next/link';
 
 interface NewsDetailProps {
-  news: ComunicacionEspecifica
+  news: ComunicacionEspecifica;
 }
 
 const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
   return (
-    <div className="w-full relative bg-white rounded-bl rounded-[20px] p-8 flex flex-col items-center gap-8">
-      <div className="w-full relative h-[400px] md:h-[600px] rounded-[3px] overflow-hidden">
-        <Image
-          className="object-cover"
-          src={news.dirImagen}
-          alt={news.titulo}
-          fill
-          priority
-        />
+    <div className="relative flex w-full flex-col items-center gap-8 rounded-[20px] rounded-bl bg-white p-8">
+      <div className="relative h-[400px] w-full overflow-hidden rounded-[3px] md:h-[600px]">
+        <Image className="object-cover" src={news.dirImagen} alt={news.titulo} fill priority />
       </div>
 
-      <div className="w-full inline-flex flex-col justify-start items-start gap-8">
-        <div className="self-stretch flex flex-col justify-start items-start gap-6">
-          <div className="self-stretch flex flex-col justify-start items-start gap-4">
-            <div className="self-stretch justify-start text-zinc-900 text-3xl font-bold font-['Helvetica'] leading-10">
+      <div className="inline-flex w-full flex-col items-start justify-start gap-8">
+        <div className="flex flex-col items-start justify-start gap-6 self-stretch">
+          <div className="flex flex-col items-start justify-start gap-4 self-stretch">
+            <div className="justify-start self-stretch font-['Helvetica'] text-3xl leading-10 font-bold text-zinc-900">
               {news.titulo}
             </div>
-            <div className="self-stretch inline-flex justify-between items-center sm:flex-row flex-col gap-4 sm:gap-0">
-              <div className="flex justify-start items-center gap-4 flex-wrap">
+            <div className="inline-flex flex-col items-center justify-between gap-4 self-stretch sm:flex-row sm:gap-0">
+              <div className="flex flex-wrap items-center justify-start gap-4">
                 {news.categoria && (
-                  <div className="flex justify-center items-center gap-1.5">
-                    <Layers className="w-6 h-6 text-rose-800" />
-                    <div className="justify-start text-neutral-600 text-sm font-normal font-['Helvetica'] leading-5">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <Layers className="h-6 w-6 text-rose-800" />
+                    <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
                       {news.categoria}
                     </div>
                   </div>
                 )}
                 {/* Placeholder for author as it is not in the API yet */}
                 {news.descOrganiza && (
-                  <div className="flex justify-center items-center gap-1.5">
-                    <CircleUserRound className="w-6 h-6 text-rose-800" />
-                    <div className="justify-start text-neutral-600 text-sm font-normal font-['Helvetica'] leading-5">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <CircleUserRound className="h-6 w-6 text-rose-800" />
+                    <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
                       {news.descOrganiza}
                     </div>
                   </div>
                 )}
-                <div className="flex justify-center items-center gap-1.5">
-                  <Calendar className="w-6 h-6 text-rose-800" />
-                  <div className="justify-start text-neutral-600 text-sm font-normal font-['Helvetica'] leading-5">
+                <div className="flex items-center justify-center gap-1.5">
+                  <Calendar className="h-6 w-6 text-rose-800" />
+                  <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
                     {formatDate(news.fecInicio, 'long')}
                   </div>
                 </div>
               </div>
-              <div className="flex justify-start items-start gap-2">
+              <div className="flex items-start justify-start gap-2">
                 <Link
                   href="https://www.facebook.com/UCSGye"
                   target="_blank"
@@ -74,23 +62,19 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
                     data-brands="Facebook"
                     data-circle="False"
                     data-status="True"
-                    className="p-3 bg-indigo-800 rounded-[36px] flex justify-start items-start gap-2.5 cursor-pointer hover:bg-indigo-900 transition-colors"
+                    className="flex cursor-pointer items-start justify-start gap-2.5 rounded-[36px] bg-indigo-800 p-3 transition-colors hover:bg-indigo-900"
                   >
-                    <FacebookIcon className="w-4 h-4 text-white" />
+                    <FacebookIcon className="h-4 w-4 text-white" />
                   </div>
                 </Link>
-                <Link
-                  href="https://x.com/ucatolicagye"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="https://x.com/ucatolicagye" target="_blank" rel="noopener noreferrer">
                   <div
                     data-brands="Twitter"
                     data-circle="False"
                     data-status="True"
-                    className="p-3 bg-sky-500 rounded-[36px] flex justify-start items-start gap-2.5 cursor-pointer hover:bg-sky-600 transition-colors"
+                    className="flex cursor-pointer items-start justify-start gap-2.5 rounded-[36px] bg-sky-500 p-3 transition-colors hover:bg-sky-600"
                   >
-                    <TwitterIcon className="w-4 h-4 text-white" />
+                    <TwitterIcon className="h-4 w-4 text-white" />
                   </div>
                 </Link>
                 <Link
@@ -102,19 +86,17 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
                     data-brands="Linkedin"
                     data-circle="False"
                     data-status="True"
-                    className="p-3 bg-rose-800 rounded-[36px] flex justify-start items-start gap-2.5 cursor-pointer hover:bg-rose-900 transition-colors"
+                    className="flex cursor-pointer items-start justify-start gap-2.5 rounded-[36px] bg-rose-800 p-3 transition-colors hover:bg-rose-900"
                   >
-                    <LinkedinIcon className="w-4 h-4 text-white" />
+                    <LinkedinIcon className="h-4 w-4 text-white" />
                   </div>
                 </Link>
                 <button
-                  onClick={() =>
-                    navigator.clipboard.writeText(window.location.href)
-                  }
-                  className="p-2.5 bg-slate-500 rounded-[36px] flex justify-start items-start gap-2.5 cursor-pointer hover:bg-slate-600 transition-colors"
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex cursor-pointer items-start justify-start gap-2.5 rounded-[36px] bg-slate-500 p-2.5 transition-colors hover:bg-slate-600"
                   title="Copiar enlace"
                 >
-                  <LinkIcon className="w-5 h-5 text-white" />
+                  <LinkIcon className="h-5 w-5 text-white" />
                 </button>
               </div>
             </div>
@@ -125,9 +107,9 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
         </div> */}
 
         {news.highlight && (
-          <div className="self-stretch p-10 bg-rose-800/10 shadow-[inset_4px_0px_0px_0px_rgba(169,0,70,1.00)] inline-flex justify-start items-start gap-6">
-            <Quote className="w-14 h-14 text-rose-800" />
-            <div className="w-3/4 justify-start text-zinc-900 text-xl font-normal font-['Helvetica'] leading-7">
+          <div className="inline-flex items-start justify-start gap-6 self-stretch bg-rose-800/10 p-10 shadow-[inset_4px_0px_0px_0px_rgba(169,0,70,1.00)]">
+            <Quote className="h-14 w-14 text-rose-800" />
+            <div className="w-3/4 justify-start font-['Helvetica'] text-xl leading-7 font-normal text-zinc-900">
               {news.highlight}
             </div>
           </div>
@@ -135,13 +117,13 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
 
         {news.detalleDesc && (
           <div
-            className="self-stretch justify-start text-neutral-600 text-lg font-normal font-['Helvetica'] leading-6 whitespace-pre-wrap [&_a]:text-rose-800 hover:[&_a]:text-rose-900 [&_a]:underline"
+            className="justify-start self-stretch font-['Helvetica'] text-lg leading-6 font-normal whitespace-pre-wrap text-neutral-600 [&_a]:text-rose-800 [&_a]:underline hover:[&_a]:text-rose-900"
             dangerouslySetInnerHTML={{ __html: news.detalleDesc }}
           />
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NewsDetail
+export default NewsDetail;

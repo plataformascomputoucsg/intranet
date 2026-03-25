@@ -1,36 +1,32 @@
-import BreadcrumbsNav from '../components/ui/BreadcrumbsNav'
+import BreadcrumbsNav from '../components/ui/BreadcrumbsNav';
 
-import Header from '../components/layout/Header'
-import Navbar from '../components/layout/NavBar'
-import HeaderTitle from '../components/ui/HeaderTitle'
-import TopBar from '../components/layout/TopBar'
-import { WaveBackground } from '../components/layout/WaveBackground'
-import Footer from '../components/layout/Footer'
-import EventMainSection from '../components/events/EventMainSection'
+import Header from '../components/layout/Header';
+import Navbar from '../components/layout/NavBar';
+import HeaderTitle from '../components/ui/HeaderTitle';
+import TopBar from '../components/layout/TopBar';
+import { WaveBackground } from '../components/layout/WaveBackground';
+import Footer from '../components/layout/Footer';
+import EventMainSection from '../components/events/EventMainSection';
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
 export default async function EventosPage() {
   return (
-    <div className={`min-h-screen w-full font-sans relative flex flex-col z-0`}>
+    <div className={`relative z-0 flex min-h-screen w-full flex-col font-sans`}>
       <WaveBackground />
       <TopBar />
       <Header />
       <Navbar />
 
-      <div className="flex flex-col items-start gap-[22px] relative mx-4 xl:mx-[10%] z-10 grow mb-8">
+      <div className="relative z-10 mx-4 mb-8 flex grow flex-col items-start gap-[22px] xl:mx-[10%]">
         <BreadcrumbsNav items={[{ label: 'Eventos' }]} />
-        <div className="flex items-start gap-[27px] relative self-stretch w-full">
-          <HeaderTitle
-            titleFirstWorld="Eventos de"
-            titleSecondWorld="INTERES"
-            viewAll={false}
-          />
+        <div className="relative flex w-full items-start gap-[27px] self-stretch">
+          <HeaderTitle titleFirstWorld="Eventos de" titleSecondWorld="INTERES" viewAll={false} />
         </div>
         <EventMainSection />
       </div>
 
       <Footer />
     </div>
-  )
+  );
 }

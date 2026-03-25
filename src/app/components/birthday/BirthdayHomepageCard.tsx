@@ -1,48 +1,43 @@
-import React from 'react'
-import { Birthday } from '../../types/birthday'
-import { PartyPopper, Mail } from 'lucide-react'
+import React from 'react';
+import { Birthday } from '../../types/birthday';
+import { PartyPopper, Mail } from 'lucide-react';
 
 interface BirthdayHomepageCardProps {
-  people: Birthday[]
+  people: Birthday[];
 }
 
-const BirthdayHomepageCard: React.FC<BirthdayHomepageCardProps> = React.memo(
-  ({ people }) => {
-    return (
-      <div className="w-full flex justify-start items-start gap-4">
-        {/* Icon Container */}
-        <div className="w-[60px] h-[60px] relative bg-rose-50 rounded-xl border border-rose-800 shrink-0 flex items-center justify-center">
-          <PartyPopper className="w-8 h-8 text-rose-800" strokeWidth={2} />
-        </div>
-
-        {/* People List */}
-        <div className="flex-1 flex flex-col justify-start items-stretch gap-[14px] mt-1 min-w-0">
-          {people.map((person, index) => (
-            <div
-              key={index}
-              className="flex justify-between items-center w-full min-w-0"
-            >
-              <div 
-                className="text-neutral-800 text-[15px] font-normal font-['Poppins'] leading-none capitalize truncate flex-1 mr-2"
-                title={person.nombre}
-              >
-                {person.nombre.toLowerCase()}
-              </div>
-              <a
-                href="#"
-                className="text-neutral-600 hover:text-rose-800 transition-colors shrink-0"
-                title="Enviar felicitación"
-              >
-                <Mail className="w-[18px] h-[18px]" strokeWidth={1.5} />
-              </a>
-            </div>
-          ))}
-        </div>
+const BirthdayHomepageCard: React.FC<BirthdayHomepageCardProps> = React.memo(({ people }) => {
+  return (
+    <div className="flex w-full items-start justify-start gap-4">
+      {/* Icon Container */}
+      <div className="relative flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-xl border border-rose-800 bg-rose-50">
+        <PartyPopper className="h-8 w-8 text-rose-800" strokeWidth={2} />
       </div>
-    )
-  }
-)
 
-BirthdayHomepageCard.displayName = 'BirthdayHomepageCard'
+      {/* People List */}
+      <div className="mt-1 flex min-w-0 flex-1 flex-col items-stretch justify-start gap-[14px]">
+        {people.map((person, index) => (
+          <div key={index} className="flex w-full min-w-0 items-center justify-between">
+            <div
+              className="mr-2 flex-1 truncate font-['Poppins'] text-[15px] leading-none font-normal text-neutral-800 capitalize"
+              title={person.nombre}
+            >
+              {person.nombre.toLowerCase()}
+            </div>
+            <a
+              href="#"
+              className="shrink-0 text-neutral-600 transition-colors hover:text-rose-800"
+              title="Enviar felicitación"
+            >
+              <Mail className="h-[18px] w-[18px]" strokeWidth={1.5} />
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+});
 
-export default BirthdayHomepageCard
+BirthdayHomepageCard.displayName = 'BirthdayHomepageCard';
+
+export default BirthdayHomepageCard;

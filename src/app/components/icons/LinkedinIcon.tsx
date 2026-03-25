@@ -13,5 +13,5 @@ export const LinkedinIcon = ({ className }: { className?: string }) => {
         fill="white"
       />
     </svg>
-  )
-}
+  );
+};

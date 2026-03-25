@@ -1,32 +1,26 @@
-import React from 'react'
+import React from 'react';
 
 interface MonthCardProps {
-  month: string
-  isActive?: boolean
-  onClick?: () => void
+  month: string;
+  isActive?: boolean;
+  onClick?: () => void;
 }
 
-const MonthCard: React.FC<MonthCardProps> = ({
-  month,
-  isActive = false,
-  onClick
-}) => {
+const MonthCard: React.FC<MonthCardProps> = ({ month, isActive = false, onClick }) => {
   return (
     <div
-      className="w-full relative flex flex-col items-center gap-4 cursor-pointer"
+      className="relative flex w-full cursor-pointer flex-col items-center gap-4"
       onClick={onClick}
       data-active={isActive}
     >
       <div
-        className={`w-full h-16 relative rounded-lg outline -outline-offset-1 ${
-          isActive
-            ? 'bg-rose-800/5 outline-rose-800'
-            : 'bg-white outline-zinc-300'
+        className={`relative h-16 w-full rounded-lg outline -outline-offset-1 ${
+          isActive ? 'bg-rose-800/5 outline-rose-800' : 'bg-white outline-zinc-300'
         }`}
       >
-        <div className="w-full h-full relative flex flex-col justify-center items-center gap-2.5">
+        <div className="relative flex h-full w-full flex-col items-center justify-center gap-2.5">
           <div
-            className={`justify-start text-xl font-medium font-['Poppins'] leading-4 ${
+            className={`justify-start font-['Poppins'] text-xl leading-4 font-medium ${
               isActive ? 'text-rose-800' : 'text-black'
             }`}
           >
@@ -34,12 +28,12 @@ const MonthCard: React.FC<MonthCardProps> = ({
           </div>
         </div>
       </div>
-      <div className="left-0 top-0 relative justify-center inline-flex items-center gap-[3px]">
-        <div className="w-[5px] h-[5px] bg-teal-400 rounded-[38px]" />
-        <div className="w-[5px] h-[5px] bg-teal-400 rounded-[38px]" />
+      <div className="relative top-0 left-0 inline-flex items-center justify-center gap-[3px]">
+        <div className="h-[5px] w-[5px] rounded-[38px] bg-teal-400" />
+        <div className="h-[5px] w-[5px] rounded-[38px] bg-teal-400" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MonthCard
+export default MonthCard;

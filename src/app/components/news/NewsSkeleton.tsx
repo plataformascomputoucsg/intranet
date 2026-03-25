@@ -1,38 +1,38 @@
 const NewsSkeleton: React.FC = () => {
   return (
-    <div className="w-full h-full flex bg-white rounded-[0px_0px_var(--demo-edublink-co-radius-4)_var(--demo-edublink-co-radius-4)]">
-      <div className="w-full h-auto mx-4 py-4 flex-col items-start gap-7 flex relative">
+    <div className="flex h-full w-full rounded-[0px_0px_var(--demo-edublink-co-radius-4)_var(--demo-edublink-co-radius-4)] bg-white">
+      <div className="relative mx-4 flex h-auto w-full flex-col items-start gap-7 py-4">
         {/* Main News Skeleton */}
-        <div className="flex flex-col md:flex-row w-full min-h-[300px] items-center gap-[25px] relative animate-pulse">
-          <div className="relative w-full md:w-1/2 h-[300px] rounded-[7.1px] overflow-hidden shrink-0 bg-gray-200" />
-          <div className="flex flex-col gap-4 w-full md:w-1/2">
-            <div className="h-4 w-24 bg-gray-200 rounded" />
-            <div className="h-6 w-full bg-gray-200 rounded" />
-            <div className="h-4 w-32 bg-gray-200 rounded" />
-            <div className="h-20 w-full bg-gray-200 rounded" />
-            <div className="h-4 w-20 bg-gray-200 rounded" />
+        <div className="relative flex min-h-[300px] w-full animate-pulse flex-col items-center gap-[25px] md:flex-row">
+          <div className="relative h-[300px] w-full shrink-0 overflow-hidden rounded-[7.1px] bg-gray-200 md:w-1/2" />
+          <div className="flex w-full flex-col gap-4 md:w-1/2">
+            <div className="h-4 w-24 rounded bg-gray-200" />
+            <div className="h-6 w-full rounded bg-gray-200" />
+            <div className="h-4 w-32 rounded bg-gray-200" />
+            <div className="h-20 w-full rounded bg-gray-200" />
+            <div className="h-4 w-20 rounded bg-gray-200" />
           </div>
         </div>
 
         {/* Grid News Skeleton */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2">
           {[...Array(4)].map((_, i) => (
             <div
               key={i}
-              className="w-full flex flex-col sm:flex-row justify-start items-center gap-4 animate-pulse"
+              className="flex w-full animate-pulse flex-col items-center justify-start gap-4 sm:flex-row"
             >
-              <div className="relative w-full sm:w-[112px] h-[112px] shrink-0 bg-gray-200 rounded-[9.77px]" />
-              <div className="w-full min-h-24 flex flex-col justify-start items-start gap-2">
-                <div className="h-4 w-full bg-gray-200 rounded" />
-                <div className="h-3 w-24 bg-gray-200 rounded" />
-                <div className="h-12 w-full bg-gray-200 rounded" />
+              <div className="relative h-[112px] w-full shrink-0 rounded-[9.77px] bg-gray-200 sm:w-[112px]" />
+              <div className="flex min-h-24 w-full flex-col items-start justify-start gap-2">
+                <div className="h-4 w-full rounded bg-gray-200" />
+                <div className="h-3 w-24 rounded bg-gray-200" />
+                <div className="h-12 w-full rounded bg-gray-200" />
               </div>
             </div>
           ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NewsSkeleton
+export default NewsSkeleton;
