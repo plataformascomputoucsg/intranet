@@ -1,4 +1,4 @@
-import DisableInput from './components/ui/DisableInput';
+import DisableInput from '@/app/components/ui/DisableInput';
 import './globals.css';
 import { Providers } from './providers';
 import { Poppins } from 'next/font/google';

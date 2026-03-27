@@ -46,6 +46,25 @@ export function extractCodigoFromSlug(slug: string): number | null {
 }
 
 /**
+ * Normaliza y valida una URL de imagen proveniente de la API.
+ * Si la URL es relativa, le antepone el dominio base (si es necesario).
+ * Si la URL es nula o inválida, retorna undefined para que el fallback actúe.
+ */
+export function normalizeImageSrc(src?: string | null): string | undefined {
+  if (!src || src.trim() === '') return undefined;
+
+  // Si ya es una URL completa (http/https), la dejamos como está
+  if (src.startsWith('http')) return src;
+
+  // Si es una ruta relativa que empieza con /, podríamos necesitar el host de la API.
+  // Por ahora, asumimos que Next.js la resuelve si está configurado el remotePattern,
+  // pero lo ideal sería centralizar el dominio si las imágenes vienen de un storage externo.
+  // Ej: return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
+
+  return src;
+}
+
+/**
  * Formatea una fecha ISO a formato legible en español.
  * Soporta múltiples formatos de salida.
  *

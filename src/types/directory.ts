@@ -20,4 +20,5 @@ export interface Contact {
   cargo: string;
   extension: string;
   correo: string;
+  foto?: string;
 }
