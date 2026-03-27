@@ -1,7 +1,7 @@
 import { getComunicacionesEspecificas } from '@/app/lib/api';
 import SmallNewsCard from './SmallNewsCard';
 import MediumNewsCard from './MediumNewsCard';
-import Image from 'next/image';
+import AppImage from '@/components/shared/AppImage';
 
 interface HeroNewsContentProps {
   tipoEvento?: number;
@@ -50,7 +50,7 @@ const HeroNewsContent: React.FC<HeroNewsContentProps> = async ({
 
         {/* Top Right: Large Hero Image - Spans 8 columns (2/3) */}
         <div className="group relative overflow-hidden rounded-2xl lg:col-span-8 lg:h-[470px] lg:min-h-0">
-          <Image
+          <AppImage
             src={heroNews.dirImagen}
             alt={heroNews.banner || heroNews.titulo}
             fill

@@ -1,5 +1,5 @@
 import { Calendar } from 'lucide-react';
-import Image from 'next/image';
+import AppImage from '@/components/shared/AppImage';
 import Link from 'next/link';
 import { ComunicacionEspecifica } from '@/app/types/comunicaciones';
 import { generateSlug, formatDate } from '@/app/lib/utils';
@@ -17,7 +17,7 @@ const SmallNewsCard: React.FC<SmallNewsCardProps> = ({ news }) => {
       className="group flex w-full cursor-pointer items-start justify-start gap-4 bg-white"
     >
       <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-[10px]">
-        <Image
+        <AppImage
           src={news.dirImagen}
           alt={news.titulo}
           fill

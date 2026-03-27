@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import AppImage from '@/components/shared/AppImage';
 import { ChevronIcon } from '../icons/ChevronIcon';
 import { ComunicacionEspecifica } from '@/app/types/comunicaciones';
 import { generateSlug } from '@/app/lib/utils';
@@ -14,7 +14,7 @@ const MediumNewsCard: React.FC<MediumNewsCardProps> = ({ news }) => {
   return (
     <div className="group flex cursor-pointer flex-col gap-4">
       <div className="relative aspect-16/10 w-full overflow-hidden rounded-xl">
-        <Image
+        <AppImage
           src={news.dirImagen}
           alt={news.titulo}
           fill
