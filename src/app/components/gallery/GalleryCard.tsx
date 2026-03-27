@@ -1,19 +1,26 @@
 import React from 'react';
-import Image from 'next/image';
+import AppImage from '@/components/shared/AppImage';
+import Link from 'next/link';
 import { ComunicacionEspecifica } from '@/app/types/comunicaciones';
 import { ExternalLink, Calendar } from 'lucide-react';
+import { generateSlug } from '@/app/lib/utils';
 
 interface GalleryCardProps {
   item: ComunicacionEspecifica;
 }
 
 const GalleryCard: React.FC<GalleryCardProps> = ({ item }) => {
+  const slug = generateSlug(item.titulo, item.codigo);
+
   return (
-    <div className="group inline-flex w-full items-center gap-4 rounded-xl p-2 transition-all duration-300 hover:bg-slate-50">
+    <Link
+      href={`/galeria/${slug}`}
+      className="group inline-flex w-full items-center gap-4 rounded-xl p-2 transition-all duration-300 hover:bg-slate-50"
+    >
       {/* Imagen del Evento */}
       <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-[10px] bg-gray-100 shadow-sm">
-        <Image
-          src={item.dirImagen || '/assets/images/placeholder.png'}
+        <AppImage
+          src={item.dirImagen}
           alt={item.titulo}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -38,7 +45,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

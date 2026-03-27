@@ -5,7 +5,7 @@ const GallerySkeleton = () => (
   <div className="grid w-full grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
     {[...Array(6)].map((_, i) => (
       <div key={i} className="flex animate-pulse flex-col gap-3">
-        <div className="aspect-[4/3] w-full rounded-[15px] bg-slate-200" />
+        <div className="aspect-4/3 w-full rounded-[15px] bg-slate-200" />
         <div className="h-4 w-3/4 rounded bg-slate-200" />
         <div className="h-3 w-1/4 rounded bg-slate-200" />
       </div>
