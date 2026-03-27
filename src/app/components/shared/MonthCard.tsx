@@ -18,9 +18,9 @@ const MonthCard: React.FC<MonthCardProps> = ({ month, isActive = false, onClick 
           isActive ? 'bg-rose-800/5 outline-rose-800' : 'bg-white outline-zinc-300'
         }`}
       >
-        <div className="relative flex h-full w-full flex-col items-center justify-center gap-2.5">
+        <div className="relative flex h-full w-full flex-col items-center justify-center gap-2.5 px-2">
           <div
-            className={`justify-start font-['Poppins'] text-xl leading-4 font-medium ${
+            className={`text-center font-['Poppins'] text-base leading-3 font-medium whitespace-nowrap ${
               isActive ? 'text-rose-800' : 'text-black'
             }`}
           >

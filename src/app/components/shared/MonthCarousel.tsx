@@ -137,10 +137,7 @@ const MonthCarousel: React.FC<MonthCarouselProps> = ({
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {orderedMonths.map((month) => (
-          <div
-            key={month.number}
-            className="flex w-1/2 shrink-0 justify-center py-4 sm:w-1/4 md:w-1/6 lg:w-[12.5%]"
-          >
+          <div key={month.number} className="flex w-[120px] shrink-0 justify-center py-4">
             <MonthCard
               month={month.name}
               isActive={month.isActive}

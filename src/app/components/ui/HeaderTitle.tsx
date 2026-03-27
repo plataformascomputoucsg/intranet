@@ -16,7 +16,7 @@ const HeaderTitle: React.FC<HeaderTitleProps> = ({
 }) => {
   return (
     <div className="relative flex w-full items-center justify-between">
-      <div className="relative flex w-[400px] flex-col items-start">
+      <div className="relative flex w-auto flex-col items-start">
         <div className="relative flex h-6 w-full items-start gap-2">
           <div className="relative font-['Poppins'] text-[22px] leading-6 font-bold tracking-[0] text-[#181818]">
             {titleFirstWorld}
