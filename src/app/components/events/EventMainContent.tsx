@@ -1,32 +1,32 @@
-import { getComunicacionesEspecificas } from '@/app/lib/api'
-import EventMainClient from './EventMainClient'
+import { getComunicacionesEspecificas } from '@/app/lib/api';
+import EventMainClient from './EventMainClient';
 
 interface EventMainContentProps {
-  tipoEvento?: number
-  seccion?: number
-  tipSitio?: number
+  tipoEvento?: number;
+  seccion?: number;
+  tipSitio?: number;
 }
 
 const EventMainContent: React.FC<EventMainContentProps> = async ({
   tipoEvento = 2,
   seccion = 1,
-  tipSitio = 1
+  tipSitio = 1,
 }) => {
   const comunicaciones = await getComunicacionesEspecificas({
     tipoEvento,
     seccion,
-    tipSitio
-  })
+    tipSitio,
+  });
 
   if (comunicaciones.length === 0) {
     return (
-      <div className="w-full h-full flex items-center justify-center text-gray-500 py-12">
+      <div className="flex h-full w-full items-center justify-center py-12 text-gray-500">
         No hay eventos disponibles
       </div>
-    )
+    );
   }
 
-  return <EventMainClient events={comunicaciones} />
-}
+  return <EventMainClient events={comunicaciones} />;
+};
 
-export default EventMainContent
+export default EventMainContent;

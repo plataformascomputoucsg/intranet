@@ -13,5 +13,5 @@ export const FacebookIcon = ({ className }: { className?: string }) => {
         fill="currentColor"
       />
     </svg>
-  )
-}
+  );
+};

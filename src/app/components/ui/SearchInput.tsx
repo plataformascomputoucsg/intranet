@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import React from 'react'
-import { Input } from '@heroui/react'
-import { SearchIcon } from '../icons/SearchIcon'
+import React from 'react';
+import { Input } from '@heroui/react';
+import { SearchIcon } from '../icons/SearchIcon';
 
 interface SearchInputProps {
-  value: string
-  onChange: (value: string) => void
-  placeholder?: string
-  className?: string
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+  className?: string;
 }
 
 const SearchInput: React.FC<SearchInputProps> = React.memo(
@@ -27,7 +27,7 @@ const SearchInput: React.FC<SearchInputProps> = React.memo(
             'shadow-sm',
             'hover:border-gray-300',
             'group-data-[focus=true]:border-gray-400',
-            '!cursor-text'
+            '!cursor-text',
           ],
           innerWrapper: 'bg-transparent',
           input: [
@@ -35,8 +35,8 @@ const SearchInput: React.FC<SearchInputProps> = React.memo(
             'text-sm',
             'font-medium',
             'font-["Poppins"]',
-            'placeholder:text-gray-900'
-          ]
+            'placeholder:text-gray-900',
+          ],
         }}
         placeholder={placeholder}
         radius="lg"
@@ -44,10 +44,10 @@ const SearchInput: React.FC<SearchInputProps> = React.memo(
         onValueChange={onChange}
         isClearable={false}
       />
-    )
+    );
   }
-)
+);
 
-SearchInput.displayName = 'SearchInput'
+SearchInput.displayName = 'SearchInput';
 
-export default SearchInput
+export default SearchInput;

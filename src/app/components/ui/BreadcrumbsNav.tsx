@@ -1,24 +1,20 @@
-'use client'
+'use client';
 
-import { Breadcrumbs, BreadcrumbItem } from '@heroui/react'
-import { Home } from 'lucide-react'
+import { Breadcrumbs, BreadcrumbItem } from '@heroui/react';
+import { Home } from 'lucide-react';
 
-export default function BreadcrumbsNav({
-  items
-}: {
-  items?: { label: string; href?: string }[]
-}) {
+export default function BreadcrumbsNav({ items }: { items?: { label: string; href?: string }[] }) {
   return (
-    <div className="flex items-start justify-start w-full">
+    <div className="flex w-full items-start justify-start">
       <Breadcrumbs
         // separator=">"
         itemClasses={{
-          separator: 'px-2 text-ucsg-primary'
+          separator: 'px-2 text-ucsg-primary',
         }}
       >
         <BreadcrumbItem href="/">
-          <div className="flex items-center gap-1 font-['Poppins'] text-ucsg-primary">
-            <Home className="w-4 h-4" />
+          <div className="text-ucsg-primary flex items-center gap-1 font-['Poppins']">
+            <Home className="h-4 w-4" />
             <span>Inicio</span>
           </div>
         </BreadcrumbItem>
@@ -29,5 +25,5 @@ export default function BreadcrumbsNav({
         ))}
       </Breadcrumbs>
     </div>
-  )
+  );
 }

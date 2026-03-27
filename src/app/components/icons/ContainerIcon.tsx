@@ -13,5 +13,5 @@ export const ContainerIcon = ({ className }: { className?: string }) => {
         fill="#A90046"
       />
     </svg>
-  )
-}
+  );
+};

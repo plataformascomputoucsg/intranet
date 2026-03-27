@@ -13,5 +13,5 @@ export const ChevronIcon = ({ className }: { className?: string }) => {
         fill="currentColor"
       />
     </svg>
-  )
-}
+  );
+};

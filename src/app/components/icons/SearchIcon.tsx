@@ -27,5 +27,5 @@ export const SearchIcon = ({ className }: { className?: string }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

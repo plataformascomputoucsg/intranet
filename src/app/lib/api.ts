@@ -1,10 +1,10 @@
 import {
   ComunicacionEspecifica,
   ComunicacionesParams,
-  NewsMainSectionData
-} from '../types/comunicaciones'
+  NewsMainSectionData,
+} from '../types/comunicaciones';
 
-const API_BASE_URL = process.env.API_URL || 'http://localhost:8080'
+const API_BASE_URL = process.env.API_URL || 'http://localhost:8080';
 
 /**
  * Cache de noticias por sección para evitar múltiples llamadas al mismo endpoint.
@@ -19,31 +19,28 @@ const API_BASE_URL = process.env.API_URL || 'http://localhost:8080'
 export async function getComunicacionesEspecificas(
   params: ComunicacionesParams
 ): Promise<ComunicacionEspecifica[]> {
-  const { tipoEvento, seccion, tipSitio } = params
-  const cacheTag = `comunicaciones-${tipoEvento}-${seccion}-${tipSitio}`
+  const { tipoEvento, seccion, tipSitio } = params;
+  const cacheTag = `comunicaciones-${tipoEvento}-${seccion}-${tipSitio}`;
 
-  const url = `${API_BASE_URL}/api/comunicaciones/especificas?tipoEvento=${tipoEvento}&seccion=${seccion}&tipSitio=${tipSitio}`
+  const url = `${API_BASE_URL}/api/comunicaciones/especificas?tipoEvento=${tipoEvento}&seccion=${seccion}&tipSitio=${tipSitio}`;
 
   try {
     const response = await fetch(url, {
       next: {
         revalidate: 60, // ISR: revalidar cada 60 segundos
-        tags: [cacheTag, 'comunicaciones'] // Tags para invalidación on-demand
-      }
-    })
+        tags: [cacheTag, 'comunicaciones'], // Tags para invalidación on-demand
+      },
+    });
 
     if (!response.ok) {
-      console.error(
-        `[API] Error fetching comunicaciones (${response.status}):`,
-        url
-      )
-      return [] // Retorna array vacío en vez de lanzar error para no romper la UI
+      console.error(`[API] Error fetching comunicaciones (${response.status}):`, url);
+      return []; // Retorna array vacío en vez de lanzar error para no romper la UI
     }
 
-    return response.json()
+    return response.json();
   } catch (error) {
-    console.error('[API] Network error fetching comunicaciones:', error)
-    return []
+    console.error('[API] Network error fetching comunicaciones:', error);
+    return [];
   }
 }
 
@@ -59,30 +56,30 @@ export async function getComunicacionByCodigo(
   tipoEvento: number = 1
 ): Promise<ComunicacionEspecifica | null> {
   // Buscar en las secciones más comunes en paralelo
-  const secciones = [1, 2, 3, 4]
+  const secciones = [1, 2, 3, 4];
 
   try {
     const promises = secciones.map((seccion) =>
       getComunicacionesEspecificas({
         tipoEvento,
         seccion,
-        tipSitio: 1
+        tipSitio: 1,
       })
-    )
+    );
 
     // Ejecutar todas las búsquedas en paralelo
-    const results = await Promise.all(promises)
+    const results = await Promise.all(promises);
 
     // Buscar el código en todos los resultados
     for (const comunicaciones of results) {
-      const found = comunicaciones.find((c) => c.codigo === codigo)
-      if (found) return found
+      const found = comunicaciones.find((c) => c.codigo === codigo);
+      if (found) return found;
     }
 
-    return null
+    return null;
   } catch (error) {
-    console.error('[API] Error fetching comunicacion by codigo:', codigo, error)
-    return null
+    console.error('[API] Error fetching comunicacion by codigo:', codigo, error);
+    return null;
   }
 }
 
@@ -98,30 +95,30 @@ export async function getComunicacionByCodigo(
 export async function getNewsMainSectionData(
   params: ComunicacionesParams
 ): Promise<NewsMainSectionData> {
-  const comunicaciones = await getComunicacionesEspecificas(params)
+  const comunicaciones = await getComunicacionesEspecificas(params);
 
   // Usar un solo recorrido para mejor performance con arrays grandes
-  let featuredNews: ComunicacionEspecifica | null = null
-  const sideNews: ComunicacionEspecifica[] = []
-  const smallNews: ComunicacionEspecifica[] = []
+  let featuredNews: ComunicacionEspecifica | null = null;
+  const sideNews: ComunicacionEspecifica[] = [];
+  const smallNews: ComunicacionEspecifica[] = [];
 
   for (const c of comunicaciones) {
     if (c.destacado === 'S' && c.subseccion === 'main' && !featuredNews) {
-      featuredNews = c
+      featuredNews = c;
     } else if (c.subseccion === 'side_news') {
-      sideNews.push(c)
+      sideNews.push(c);
     } else if (c.subseccion === 'small_news') {
-      smallNews.push(c)
+      smallNews.push(c);
     }
   }
 
   // Ordenar por indice después del filtrado
-  sideNews.sort((a, b) => (a.indice ?? 0) - (b.indice ?? 0))
-  smallNews.sort((a, b) => (a.indice ?? 0) - (b.indice ?? 0))
+  sideNews.sort((a, b) => (a.indice ?? 0) - (b.indice ?? 0));
+  smallNews.sort((a, b) => (a.indice ?? 0) - (b.indice ?? 0));
 
   return {
     featuredNews,
     sideNews,
-    smallNews
-  }
+    smallNews,
+  };
 }

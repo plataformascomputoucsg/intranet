@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { Calendar, MapPinned } from 'lucide-react'
+import Link from 'next/link';
+import Image from 'next/image';
+import { Calendar, MapPinned } from 'lucide-react';
 
 interface EventHeroCardProps {
-  slug: string
-  title: string
-  date: string
-  location: string
-  description: string
-  image: string
+  slug: string;
+  title: string;
+  date: string;
+  location: string;
+  description: string;
+  image: string;
 }
 
 const EventHeroCard: React.FC<EventHeroCardProps> = ({
@@ -19,14 +19,14 @@ const EventHeroCard: React.FC<EventHeroCardProps> = ({
   date,
   location,
   description,
-  image
+  image,
 }) => {
   return (
     <Link
       href={`/eventos/${slug}`}
-      className="w-full h-auto inline-flex flex-col justify-start items-center gap-4 group cursor-pointer"
+      className="group inline-flex h-auto w-full cursor-pointer flex-col items-center justify-start gap-4"
     >
-      <div className="relative w-full h-64">
+      <div className="relative h-64 w-full">
         <Image
           className="rounded-[9.77px] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
           src={image}
@@ -34,37 +34,37 @@ const EventHeroCard: React.FC<EventHeroCardProps> = ({
           fill
         />
       </div>
-      <div className="self-stretch flex flex-col justify-start items-start gap-2">
-        <div className="self-stretch flex flex-col justify-start items-start gap-[2.92px]">
-          <div className="self-stretch h-auto flex flex-col justify-start items-start">
-            <div className="self-stretch inline-flex justify-start items-start">
-              <div className="w-full justify-start text-neutral-900 text-sm font-semibold font-['Poppins'] leading-4 group-hover:text-ucsg-primary transition-colors">
+      <div className="flex flex-col items-start justify-start gap-2 self-stretch">
+        <div className="flex flex-col items-start justify-start gap-[2.92px] self-stretch">
+          <div className="flex h-auto flex-col items-start justify-start self-stretch">
+            <div className="inline-flex items-start justify-start self-stretch">
+              <div className="group-hover:text-ucsg-primary w-full justify-start font-['Poppins'] text-sm leading-4 font-semibold text-neutral-900 transition-colors">
                 {title}
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col justify-start items-start gap-[3px]">
-            <div className="self-stretch h-5 inline-flex justify-start items-start flex-wrap content-start">
-              <div className="w-auto pr-2 py-[2.92px] inline-flex flex-col justify-center items-start">
-                <div className="h-4 pb-[0.55px] inline-flex justify-start items-center gap-1.5">
+          <div className="flex flex-col items-start justify-start gap-[3px] self-stretch">
+            <div className="inline-flex h-5 flex-wrap content-start items-start justify-start self-stretch">
+              <div className="inline-flex w-auto flex-col items-start justify-center py-[2.92px] pr-2">
+                <div className="inline-flex h-4 items-center justify-start gap-1.5 pb-[0.55px]">
                   {/* <div className="flex justify-start items-start">
                     <div className="w-2.5 h-2.5 relative">
                       <div className="w-2.5 h-2.5 left-0 top-0 absolute bg-rose-800" />
                     </div>
                   </div> */}
-                  <Calendar className="w-4 h-4 text-rose-800" />
-                  <div className="max-h-4 justify-start text-neutral-900 text-xs font-normal font-['Poppins'] leading-4">
+                  <Calendar className="h-4 w-4 text-rose-800" />
+                  <div className="max-h-4 justify-start font-['Poppins'] text-xs leading-4 font-normal text-neutral-900">
                     {date}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="self-stretch h-5 inline-flex justify-start items-start flex-wrap content-start">
-              <div className="w-auto pr-2 py-[2.92px] inline-flex flex-col justify-center items-start">
-                <div className="h-4 pl-px pb-[0.55px] inline-flex justify-start items-center gap-1.5">
+            <div className="inline-flex h-5 flex-wrap content-start items-start justify-start self-stretch">
+              <div className="inline-flex w-auto flex-col items-start justify-center py-[2.92px] pr-2">
+                <div className="inline-flex h-4 items-center justify-start gap-1.5 pb-[0.55px] pl-px">
                   {/* <div className="w-2 h-3 bg-rose-800" /> */}
-                  <MapPinned className="w-4 h-4 text-rose-800" />
-                  <div className="max-h-4 justify-start text-neutral-900 text-xs font-normal font-['Poppins'] leading-4">
+                  <MapPinned className="h-4 w-4 text-rose-800" />
+                  <div className="max-h-4 justify-start font-['Poppins'] text-xs leading-4 font-normal text-neutral-900">
                     {location}
                   </div>
                 </div>
@@ -72,14 +72,14 @@ const EventHeroCard: React.FC<EventHeroCardProps> = ({
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col justify-start items-start">
-          <div className="self-stretch justify-start text-zinc-500 text-sm font-normal font-['Poppins'] leading-6 line-clamp-2">
+        <div className="flex flex-col items-start justify-start self-stretch">
+          <div className="line-clamp-2 justify-start self-stretch font-['Poppins'] text-sm leading-6 font-normal text-zinc-500">
             {description}
           </div>
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default EventHeroCard
+export default EventHeroCard;

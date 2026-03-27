@@ -27,5 +27,5 @@ export const PersonIcon = ({ className }: { className?: string }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

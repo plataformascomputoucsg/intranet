@@ -1,43 +1,38 @@
-import MainNews from './MainNews'
-import GridNews from './GridNews'
-import { getComunicacionesEspecificas } from '@/app/lib/api'
+import SideNewsCard from './SideNewsCard';
+import { getComunicacionesEspecificas } from '@/app/lib/api';
 
 interface NewsContentProps {
-  tipoEvento?: number
-  seccion?: number
-  tipSitio?: number
+  tipoEvento?: number;
+  seccion?: number;
+  tipSitio?: number;
 }
 
 const NewsContent: React.FC<NewsContentProps> = async ({
   tipoEvento = 1,
   seccion = 1,
-  tipSitio = 1
+  tipSitio = 1,
 }) => {
   const comunicaciones = await getComunicacionesEspecificas({
     tipoEvento,
     seccion,
-    tipSitio
-  })
+    tipSitio,
+  });
 
-  // Primer elemento para MainNews
-  const mainNewsItem = comunicaciones[0]
-  // Del índice 1 en adelante para GridNews
-  const gridNewsItems = comunicaciones.slice(1)
-
-  if (!mainNewsItem) {
+  if (!comunicaciones || comunicaciones.length === 0) {
     return (
-      <div className="w-full h-full flex items-center justify-center text-gray-500">
+      <div className="flex h-full w-full items-center justify-center text-gray-500">
         No hay noticias disponibles
       </div>
-    )
+    );
   }
 
   return (
-    <>
-      <MainNews news={mainNewsItem} />
-      {gridNewsItems.length > 0 && <GridNews newsItems={gridNewsItems} />}
-    </>
-  )
-}
+    <div className="flex w-full flex-col gap-6">
+      {comunicaciones.map((item, idx) => (
+        <SideNewsCard key={idx} news={item} />
+      ))}
+    </div>
+  );
+};
 
-export default NewsContent
+export default NewsContent;

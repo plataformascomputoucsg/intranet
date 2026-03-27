@@ -1,5 +1,5 @@
 export interface Birthday {
-  nombre: string
-  dia: string
-  mes: string
+  nombre: string;
+  dia: string;
+  mes: string;
 }

@@ -26,5 +26,5 @@ export const GiftIcon = ({ className }: { className?: string }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

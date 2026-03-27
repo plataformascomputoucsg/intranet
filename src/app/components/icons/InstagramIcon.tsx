@@ -25,5 +25,5 @@ export const InstagramIcon = ({ className }: { className?: string }) => {
         fill="white"
       />
     </svg>
-  )
-}
+  );
+};

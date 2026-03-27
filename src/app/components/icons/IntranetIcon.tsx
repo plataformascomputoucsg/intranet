@@ -49,5 +49,5 @@ export const IntranetIcon = ({ className }: { className?: string }) => {
         fill="#A90046"
       />
     </svg>
-  )
-}
+  );
+};

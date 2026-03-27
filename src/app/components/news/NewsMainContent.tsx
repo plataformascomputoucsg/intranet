@@ -1,37 +1,37 @@
-import { getNewsMainSectionData } from '@/app/lib/api'
-import FeaturedNewsCard from './FeaturedNewsCard'
-import SideNewsCard from './SideNewsCard'
-import SmallNewsCard from './SmallNewsCard'
+import { getNewsMainSectionData } from '@/app/lib/api';
+import FeaturedNewsCard from './FeaturedNewsCard';
+import SideNewsCard from './SideNewsCard';
+import SmallNewsCard from './SmallNewsCard';
 
 interface NewsMainContentProps {
-  tipoEvento?: number
-  seccion?: number
-  tipSitio?: number
+  tipoEvento?: number;
+  seccion?: number;
+  tipSitio?: number;
 }
 
 const NewsMainContent: React.FC<NewsMainContentProps> = async ({
   tipoEvento = 1,
   seccion = 2,
-  tipSitio = 1
+  tipSitio = 1,
 }) => {
   const { featuredNews, sideNews, smallNews } = await getNewsMainSectionData({
     tipoEvento,
     seccion,
-    tipSitio
-  })
+    tipSitio,
+  });
 
   if (!featuredNews && sideNews.length === 0 && smallNews.length === 0) {
     return (
-      <div className="w-full h-full flex items-center justify-center text-gray-500 py-12">
+      <div className="flex h-full w-full items-center justify-center py-12 text-gray-500">
         No hay noticias disponibles
       </div>
-    )
+    );
   }
 
   return (
-    <div className="flex flex-col xl:flex-row gap-8 w-full">
+    <div className="flex w-full flex-col gap-8 xl:flex-row">
       {/* Left Column: Featured + Bottom Grid - Takes 2/3 on desktop */}
-      <div className="w-full xl:w-2/3 flex flex-col gap-8 justify-between">
+      <div className="flex w-full flex-col justify-between gap-8 xl:w-2/3">
         {/* Featured Section */}
         {featuredNews && (
           <div className="w-full">
@@ -41,7 +41,7 @@ const NewsMainContent: React.FC<NewsMainContentProps> = async ({
 
         {/* Bottom Section: 2x2 Grid */}
         {smallNews.length > 0 && (
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-100 pt-8">
+          <div className="grid w-full grid-cols-1 gap-8 border-t border-gray-100 pt-8 md:grid-cols-2">
             {smallNews.map((news) => (
               <div key={news.codigo} className="w-full">
                 <SmallNewsCard news={news} />
@@ -53,14 +53,14 @@ const NewsMainContent: React.FC<NewsMainContentProps> = async ({
 
       {/* Right Column: Sidebar - Takes 1/3 on desktop */}
       {sideNews.length > 0 && (
-        <div className="w-full xl:w-1/3 flex flex-col gap-6">
+        <div className="flex w-full flex-col gap-6 xl:w-1/3">
           {sideNews.map((news) => (
             <SideNewsCard key={news.codigo} news={news} />
           ))}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default NewsMainContent
+export default NewsMainContent;

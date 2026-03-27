@@ -27,7 +27,7 @@ const KeyIcon = ({ className }: { className?: string }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};
 
-export default KeyIcon
+export default KeyIcon;
