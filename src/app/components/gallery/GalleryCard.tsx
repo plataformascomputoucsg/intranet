@@ -3,7 +3,7 @@ import AppImage from '@/components/shared/AppImage';
 import Link from 'next/link';
 import { ComunicacionEspecifica } from '@/app/types/comunicaciones';
 import { ExternalLink, Calendar } from 'lucide-react';
-import { generateSlug } from '@/app/lib/utils';
+import { generateSlug, formatDate } from '@/app/lib/utils';
 
 interface GalleryCardProps {
   item: ComunicacionEspecifica;
@@ -40,7 +40,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item }) => {
           <div className="inline-flex items-center gap-2">
             <Calendar className="h-3.5 w-3.5 text-[#A90046]" />
             <span className="font-['Poppins'] text-sm leading-4 font-normal text-neutral-600">
-              {item.fecInicio || 'Sin fecha'}
+              {item.fecInicio ? formatDate(item.fecInicio) : 'Sin fecha'}
             </span>
           </div>
         </div>
