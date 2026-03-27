@@ -7,6 +7,23 @@ import {
 const API_BASE_URL = process.env.API_URL || 'http://localhost:8080';
 
 /**
+ * Obtiene todas las imágenes de un evento de galería por su código.
+ * Endpoint: GET /api/comunicaciones/imagen?codNoticia={codigo}
+ */
+export async function getImagenesEvento(codigo: number): Promise<string[]> {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/comunicaciones/imagen?codNoticia=${codigo}`, {
+      next: { revalidate: 60, tags: [`galeria-imagenes-${codigo}`] },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.dirImagenes ?? [];
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Cache de noticias por sección para evitar múltiples llamadas al mismo endpoint.
  * Next.js automáticamente deduplica fetches con la misma URL dentro de un request,
  * pero mantener esto explícito ayuda a la claridad y permite control adicional.

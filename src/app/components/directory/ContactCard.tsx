@@ -45,9 +45,14 @@ const ContactCard = ({ contact }: ContactCardProps) => {
       </div>
       <div className="flex items-start gap-1.5 px-5 pb-4">
         <MailIcon className="mt-0.5 h-5 w-5 shrink-0" />
-        <div className="font-['Poppins'] text-sm leading-4 font-normal break-all text-rose-800 underline">
+        <a
+          href={`https://outlook.office.com/mail/deeplink/compose?to=${contact.correo}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-['Poppins'] text-sm leading-4 font-normal break-all text-rose-800 underline hover:opacity-75"
+        >
           {contact.correo}
-        </div>
+        </a>
       </div>
     </div>
   );

@@ -18,11 +18,11 @@ const HeaderTitle: React.FC<HeaderTitleProps> = ({
     <div className="relative flex w-full items-center justify-between">
       <div className="relative flex w-auto flex-col items-start">
         <div className="relative flex h-6 w-full items-start gap-2">
-          <div className="relative font-['Poppins'] text-[22px] leading-6 font-bold tracking-[0] text-[#181818]">
+          <div className="relative font-['Poppins'] text-[22px] leading-6 font-bold tracking-[0] whitespace-nowrap text-[#181818]">
             {titleFirstWorld}
           </div>
 
-          <div className="relative font-['Poppins'] text-[22px] leading-6 font-bold tracking-[1.10px] text-[#a90046db] [-webkit-text-stroke:0.35px_#a90046db]">
+          <div className="relative font-['Poppins'] text-[22px] leading-6 font-bold tracking-[1.10px] whitespace-nowrap text-[#a90046db] [-webkit-text-stroke:0.35px_#a90046db]">
             {titleSecondWorld}
           </div>
           <br />

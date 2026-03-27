@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   images: {
     formats: ['image/avif', 'image/webp'],
+    // Next.js 16 bloquea IPs privadas por defecto.
+    // http://intranet resuelve a 172.16.x.x (red interna), necesitamos habilitarlo.
+    dangerouslyAllowLocalIP: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -20,6 +23,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'http',
+        hostname: 'intranet',
       },
     ],
   },

@@ -6,7 +6,6 @@ import ContactCard from '@/app/components/directory/ContactCard';
 import { ScrollShadow } from '@heroui/scroll-shadow';
 import SearchInput from '@/app/components/ui/SearchInput';
 import { Unidad, Contact } from '@/types/directory';
-import Footer from '@/app/components/layout/Footer';
 import { Spinner } from '@heroui/react';
 import { useContactFilter } from '@/hooks/useContactFilter';
 
@@ -90,10 +89,6 @@ export default function ContactClient({ directory, contacts }: ContactClientProp
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="relative top-22 w-full">
-        <Footer />
       </div>
     </>
   );

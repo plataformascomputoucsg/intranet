@@ -17,3 +17,7 @@ services:
     # Pasamos las variables PRIVADAS (Runtime) como API_URL
     env_file:
       - .env
+
+    # Permite que el contenedor resuelva 'intranet' igual que el host Windows
+    extra_hosts:
+      - 'intranet:172.16.1.18'

@@ -53,15 +53,31 @@ export function extractCodigoFromSlug(slug: string): number | null {
 export function normalizeImageSrc(src?: string | null): string | undefined {
   if (!src || src.trim() === '') return undefined;
 
-  // Si ya es una URL completa (http/https), la dejamos como está
-  if (src.startsWith('http')) return src;
+  // Separamos origin + path para decodear solo el path.
+  // La API devuelve URLs con %20 en el path (ya encodadas).
+  // next/image vuelve a encodear el parámetro url=, causando doble encoding (%2520).
+  // Solución: decodear el path completamente antes de pasarlo a next/image.
+  let normalized = src;
+  try {
+    const url = new URL(src.startsWith('http') ? src : `http://placeholder${src}`);
+    // Decodificamos el pathname repetidamente hasta que esté limpio
+    let pathname = url.pathname;
+    let prev = '';
+    while (prev !== pathname) {
+      prev = pathname;
+      pathname = decodeURIComponent(pathname);
+    }
+    if (src.startsWith('http')) {
+      normalized = `${url.protocol}//${url.host}${pathname}`;
+    } else {
+      const imageBase = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'http://intranet';
+      return `${imageBase}${pathname}`;
+    }
+  } catch {
+    normalized = src;
+  }
 
-  // Si es una ruta relativa que empieza con /, podríamos necesitar el host de la API.
-  // Por ahora, asumimos que Next.js la resuelve si está configurado el remotePattern,
-  // pero lo ideal sería centralizar el dominio si las imágenes vienen de un storage externo.
-  // Ej: return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
-
-  return src;
+  return normalized;
 }
 
 /**
