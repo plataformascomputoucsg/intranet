@@ -17,7 +17,7 @@ const EventsSection: React.FC<EventsSectionProps> = ({
   return (
     <div className="relative flex h-full w-full flex-col items-stretch gap-[15px]">
       <HeaderTitle titleFirstWorld="Últimos" titleSecondWorld="EVENTOS" link="/eventos" />
-      <div className="relative min-h-[635px] w-full flex-1 overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_30px_#00000012]">
+      <div className="relative min-h-[550px] w-full flex-1 overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_30px_#00000012]">
         <div className="h-full w-full rounded-[0px_0px_var(--demo-edublink-co-radius-4)_var(--demo-edublink-co-radius-4)] bg-white">
           <div className="relative mx-[27px] flex h-full w-auto flex-col items-start justify-center gap-[22px] pt-4 pb-4">
             <Suspense fallback={<EventSkeleton />}>
