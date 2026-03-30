@@ -21,4 +21,5 @@ export interface Contact {
   extension: string;
   correo: string;
   foto?: string;
+  subunidad: string;
 }

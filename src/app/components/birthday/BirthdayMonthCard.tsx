@@ -32,7 +32,7 @@ const BirthdayMonthCard: React.FC<BirthdayMonthCardProps> = React.memo(({ day, p
               className="shrink-0 text-neutral-400 transition-colors hover:text-rose-800"
               title="Enviar felicitación"
             >
-              <Mail className="h-[16px] w-[16px]" strokeWidth={1.5} />
+              <Mail className="h-4 w-4" strokeWidth={1.5} />
             </a>
           </div>
         ))}
