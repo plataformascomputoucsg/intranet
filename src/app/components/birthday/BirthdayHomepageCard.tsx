@@ -24,13 +24,17 @@ const BirthdayHomepageCard: React.FC<BirthdayHomepageCardProps> = React.memo(({ 
             >
               {person.nombre.toLowerCase()}
             </div>
-            <a
-              href="#"
-              className="shrink-0 text-neutral-600 transition-colors hover:text-rose-800"
-              title="Enviar felicitación"
-            >
-              <Mail className="h-[18px] w-[18px]" strokeWidth={1.5} />
-            </a>
+            {person.correo && (
+              <a
+                href={`https://outlook.office.com/mail/deeplink/compose?to=${person.correo}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 text-neutral-600 transition-colors hover:text-rose-800"
+                title="Enviar felicitación"
+              >
+                <Mail className="h-[18px] w-[18px]" strokeWidth={1.5} />
+              </a>
+            )}
           </div>
         ))}
       </div>

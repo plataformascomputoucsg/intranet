@@ -25,26 +25,32 @@ const ContactCard = ({ contact }: ContactCardProps) => {
           )}
         </div>
       </div>
-      <div className="flex items-start gap-1.5 px-5">
-        <PersonIcon className="mt-0.5 h-5 w-5 shrink-0" />
+      <div className="flex items-center gap-1.5 px-5">
+        <PersonIcon className="h-5 w-5 shrink-0" />
         <div className="font-['Poppins'] text-sm leading-4 font-normal text-neutral-900">
           {contact.nombres} {contact.apellidos}
         </div>
       </div>
-      <div className="flex items-start gap-1.5 px-5">
-        <BadgeIcon className="mt-0.5 h-5 w-5 shrink-0" />
+      <div className="flex items-center gap-1.5 px-5">
+        <BadgeIcon className="h-5 w-5 shrink-0" />
         <div className="font-['Poppins'] text-sm leading-4 font-normal text-neutral-900">
           {contact.cargo}
         </div>
       </div>
-      <div className="flex items-start gap-1.5 px-5">
-        <CallIcon className="mt-0.5 h-5 w-5 shrink-0" />
+      <div className="flex items-center gap-1.5 px-5">
+        <BadgeIcon className="h-5 w-5 shrink-0" />
+        <div className="font-['Poppins'] text-sm leading-4 font-normal text-neutral-900">
+          {contact.subunidad}
+        </div>
+      </div>
+      <div className="flex items-center gap-1.5 px-5">
+        <CallIcon className="h-5 w-5 shrink-0" />
         <div className="font-['Poppins'] text-sm leading-4 font-normal text-neutral-900">
           {contact.extension}
         </div>
       </div>
-      <div className="flex items-start gap-1.5 px-5 pb-4">
-        <MailIcon className="mt-0.5 h-5 w-5 shrink-0" />
+      <div className="flex items-center gap-1.5 px-5 pb-4">
+        <MailIcon className="h-5 w-5 shrink-0" />
         <a
           href={`https://outlook.office.com/mail/deeplink/compose?to=${contact.correo}`}
           target="_blank"
