@@ -6,6 +6,14 @@ interface BirthdayHomepageCardProps {
   people: Birthday[];
 }
 
+const createBirthdayMail = (correo: string, nombre: string) => {
+  const subject = encodeURIComponent('¡Feliz Cumpleaños!');
+  const body = encodeURIComponent(
+    `¡Feliz Cumpleaños, ${nombre}! 🎂\n\nQue tengas un día increíble lleno de alegría y éxitos.\n\nCon cariño,`
+  );
+  return `https://outlook.office.com/mail/deeplink/compose?to=${correo}&subject=${subject}&body=${body}`;
+};
+
 const BirthdayHomepageCard: React.FC<BirthdayHomepageCardProps> = React.memo(({ people }) => {
   return (
     <div className="flex w-full items-start justify-start gap-4">
@@ -15,7 +23,7 @@ const BirthdayHomepageCard: React.FC<BirthdayHomepageCardProps> = React.memo(({ 
       </div>
 
       {/* People List */}
-      <div className="mt-1 flex min-w-0 flex-1 flex-col items-stretch justify-start gap-[14px]">
+      <div className="mt-1 flex min-w-0 flex-1 flex-col items-stretch justify-start gap-3.5">
         {people.map((person, index) => (
           <div key={index} className="flex w-full min-w-0 items-center justify-between">
             <div
@@ -26,7 +34,7 @@ const BirthdayHomepageCard: React.FC<BirthdayHomepageCardProps> = React.memo(({ 
             </div>
             {person.correo && (
               <a
-                href={`https://outlook.office.com/mail/deeplink/compose?to=${person.correo}`}
+                href={createBirthdayMail(person.correo, person.nombre)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="shrink-0 text-neutral-600 transition-colors hover:text-rose-800"

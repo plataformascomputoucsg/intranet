@@ -7,6 +7,14 @@ interface BirthdayMonthCardProps {
   people: Birthday[];
 }
 
+const createBirthdayMail = (correo: string, nombre: string) => {
+  const subject = encodeURIComponent('¡Feliz Cumpleaños!');
+  const body = encodeURIComponent(
+    `¡Feliz Cumpleaños, ${nombre}! 🎂\n\nQue tengas un día increíble lleno de alegría y éxitos.\n\nCon cariño,`
+  );
+  return `https://outlook.office.com/mail/deeplink/compose?to=${correo}&subject=${subject}&body=${body}`;
+};
+
 const BirthdayMonthCard: React.FC<BirthdayMonthCardProps> = React.memo(({ day, people }) => {
   return (
     <div className="flex h-full w-full flex-row items-center gap-4 rounded-xl border border-t-[5px] border-neutral-100 border-t-rose-800 bg-white p-4 shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)]">
@@ -27,13 +35,17 @@ const BirthdayMonthCard: React.FC<BirthdayMonthCardProps> = React.memo(({ day, p
             >
               {person.nombre.toLowerCase()}
             </div>
-            <a
-              href="#"
-              className="shrink-0 text-neutral-400 transition-colors hover:text-rose-800"
-              title="Enviar felicitación"
-            >
-              <Mail className="h-4 w-4" strokeWidth={1.5} />
-            </a>
+            {person.correo && (
+              <a
+                href={createBirthdayMail(person.correo, person.nombre)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 text-neutral-400 transition-colors hover:text-rose-800"
+                title="Enviar felicitación"
+              >
+                <Mail className="h-4 w-4" strokeWidth={1.5} />
+              </a>
+            )}
           </div>
         ))}
       </div>
