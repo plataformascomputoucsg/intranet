@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Capa 1 — ESLint + Prettier (obligatorio para todos)
+pnpm exec lint-staged
+
+# Capa 2 — GGA AI review (opcional, solo si está instalado)
+. "$(dirname -- "$0")/gga-review"

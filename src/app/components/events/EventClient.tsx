@@ -21,7 +21,7 @@ const EventClient: React.FC<EventClientProps> = ({ events }) => {
   const now = new Date();
   const currentMonth = String(now.getMonth() + 1).padStart(2, '0');
   const currentYear = now.getFullYear();
-  const [selectedMonth, setSelectedMonth] = useState<string>(currentMonth);
+  const [selectedMonth, _setSelectedMonth] = useState<string>(currentMonth);
   const [selectedDay, setSelectedDay] = useState<number>(now.getDate());
 
   const daysWithEvents = useMemo(() => {

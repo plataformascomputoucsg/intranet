@@ -1,5 +1,5 @@
 'use client';
-import { useState, useMemo, useDeferredValue } from 'react';
+import React, { useState, useMemo, useDeferredValue } from 'react';
 import Image from 'next/image';
 import MonthCarousel from '../shared/MonthCarousel';
 import SearchInput from '../ui/SearchInput';
@@ -7,7 +7,7 @@ import BirthdayMainCalendar from './BirthdayMainCalendar';
 import { BirthdayBackground } from './BirthdayBackground';
 import ClientOnly from '../ui/ClientOnly';
 import { Birthday } from '../../types/birthday';
-// @ts-ignore
+// @ts-expect-error — imagen estática sin tipos declarados
 import birthdayImg from '@/assets/images/birthday_img.png';
 
 interface BirthdayMainSectionProps {

@@ -9,7 +9,8 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "deploy": "git push origin main && ssh root@172.16.1.115 \"cd Documentos/projects/intranet-deploy && echo '>>> ACTUALIZANDO FRONTEND...' && cd frontend && git pull origin main && echo '>>> ACTUALIZANDO BACKEND...' && cd ../backend && git pull origin main && cd .. && echo '>>> DESPLEGANDO TODO...' && docker compose up -d --build && docker image prune -f\""
+    "deploy": "git push origin main && ssh root@172.16.1.115 \"cd Documentos/projects/intranet-deploy && echo '>>> ACTUALIZANDO FRONTEND...' && cd frontend && git pull origin main && echo '>>> ACTUALIZANDO BACKEND...' && cd ../backend && git pull origin main && cd .. && echo '>>> DESPLEGANDO TODO...' && docker compose up -d --build && docker image prune -f\"",
+    "prepare": "husky"
   },
   "dependencies": {
     "@heroui/button": "^2.2.29",
@@ -25,6 +26,8 @@
     "swiper": "^12.0.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -32,9 +35,20 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.7",
     "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx,json,css,md}": [
+      "prettier --write"
+    ]
   }
 }

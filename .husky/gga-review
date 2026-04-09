@@ -1,0 +1,90 @@
+#!/usr/bin/env sh
+# Gentleman Guardian Angel — AI code review (opcional)
+# Solo corre si existe ~/.config/gga/config en la máquina.
+# Si no existe, se saltea silenciosamente — no bloquea al equipo.
+
+GGA_CONFIG="$HOME/.config/gga/config"
+GGA_RULES="$HOME/.config/gga/AGENTS.md"
+
+# Verificar si GGA está instalado en esta máquina
+if [ ! -f "$GGA_CONFIG" ]; then
+  exit 0
+fi
+
+# Leer configuración
+PROVIDER=$(grep '^PROVIDER=' "$GGA_CONFIG" | cut -d'"' -f2)
+TIMEOUT=$(grep '^TIMEOUT=' "$GGA_CONFIG" | cut -d'"' -f2)
+TIMEOUT=${TIMEOUT:-60}
+
+# Obtener archivos staged que matcheen los patrones de GGA
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx|js|jsx)$' | grep -v -E '(\.test\.|\.spec\.|\.d\.ts|dist/|build/|node_modules/)')
+
+# Si no hay archivos relevantes, salir sin error
+if [ -z "$STAGED_FILES" ]; then
+  exit 0
+fi
+
+echo ""
+echo "👼 GGA — Gentleman Guardian Angel"
+echo "   Revisando código con AI ($PROVIDER)..."
+echo ""
+
+# Construir el diff de los archivos staged para mandarle al agente
+DIFF=$(git diff --cached -- $STAGED_FILES)
+
+# Leer las reglas
+RULES=$(cat "$GGA_RULES")
+
+# Construir el prompt para el agente
+PROMPT="Sos un revisor de código senior. Revisá el siguiente diff y aplicá estas reglas estrictamente:
+
+$RULES
+
+DIFF A REVISAR:
+$DIFF
+
+Respondé ÚNICAMENTE con STATUS: PASSED o STATUS: FAILED en la primera línea.
+Si es FAILED, listá cada problema en formato: archivo:línea - regla violada - descripción"
+
+# Llamar al agente AI según el provider configurado
+case "$PROVIDER" in
+  opencode)
+    REVIEW=$(timeout "$TIMEOUT" opencode run "$PROMPT" 2>/dev/null)
+    ;;
+  *)
+    echo "   Provider '$PROVIDER' no soportado en hook. Saltando revisión AI."
+    exit 0
+    ;;
+esac
+
+# Verificar si el comando falló (timeout, error de red, etc)
+if [ $? -ne 0 ] || [ -z "$REVIEW" ]; then
+  echo "   ⚠️  GGA no pudo conectarse. Continuando sin revisión AI."
+  exit 0
+fi
+
+# Parsear el resultado
+STATUS=$(echo "$REVIEW" | head -n1)
+
+if echo "$STATUS" | grep -q "STATUS: PASSED"; then
+  echo "   ✅ GGA: código aprobado"
+  echo ""
+  exit 0
+elif echo "$STATUS" | grep -q "STATUS: FAILED"; then
+  echo "   ❌ GGA: código rechazado"
+  echo ""
+  echo "$REVIEW" | tail -n +2
+  echo ""
+  exit 1
+else
+  # Respuesta ambigua — en strict mode falla, sino deja pasar
+  STRICT=$(grep '^STRICT_MODE=' "$GGA_CONFIG" | cut -d'"' -f2)
+  if [ "$STRICT" = "true" ]; then
+    echo "   ⚠️  GGA: respuesta ambigua en strict mode — commit bloqueado"
+    echo "$REVIEW"
+    exit 1
+  else
+    echo "   ⚠️  GGA: respuesta ambigua — continuando"
+    exit 0
+  fi
+fi
