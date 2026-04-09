@@ -10,7 +10,7 @@ interface BirthdayMainCalendarProps {
 }
 
 const BirthdayMainCalendar: React.FC<BirthdayMainCalendarProps> = React.memo(
-  ({ birthdays, showMonth = false }) => {
+  ({ birthdays, showMonth: _showMonth = false }) => {
     // Group birthdays by day - memoize this expensive operation
     const birthdaysByDay = useMemo(() => {
       return birthdays.reduce(

@@ -1,7 +1,7 @@
 'use client';
 
 import Image, { ImageProps } from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { normalizeImageSrc } from '@/app/lib/utils';
 
 interface AppImageProps extends Omit<ImageProps, 'src' | 'onError'> {
@@ -23,19 +23,8 @@ export default function AppImage({
   className,
   ...props
 }: AppImageProps) {
-  const [imgSrc, setImgSrc] = useState<string>(fallbackSrc);
+  const [imgSrc, setImgSrc] = useState<string>(() => normalizeImageSrc(src) ?? fallbackSrc);
   const [hasError, setHasError] = useState(false);
-
-  useEffect(() => {
-    // Si el src cambia, normalizamos y reseteamos el estado de error
-    const normalized = normalizeImageSrc(src);
-    if (normalized) {
-      setImgSrc(normalized);
-      setHasError(false);
-    } else {
-      setImgSrc(fallbackSrc);
-    }
-  }, [src, fallbackSrc]);
 
   return (
     <Image

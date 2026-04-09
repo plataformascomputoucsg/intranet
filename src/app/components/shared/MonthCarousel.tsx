@@ -13,7 +13,7 @@ interface MonthCarouselProps {
 const MonthCarousel: React.FC<MonthCarouselProps> = ({
   selectedMonth,
   onMonthSelect,
-  currentMonthIndex,
+  currentMonthIndex: _currentMonthIndex,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -68,11 +68,8 @@ const MonthCarousel: React.FC<MonthCarouselProps> = ({
         // Find the parent div with .shrink-0 that contains the card
         const cardContainer = activeMonthCard.closest('.shrink-0') as HTMLElement | null;
         if (cardContainer) {
-          const containerWidth = container.clientWidth;
-          const cardLeft = cardContainer.offsetLeft;
-          const cardWidth = cardContainer.offsetWidth;
           // Align the active card to the left of the visible area
-          const scrollTo = Math.max(0, cardLeft - container.offsetLeft);
+          const scrollTo = Math.max(0, cardContainer.offsetLeft - container.offsetLeft);
           container.scrollTo({ left: scrollTo, behavior: 'instant' });
 
           // Re-check scroll state after layout/scroll finishes
