@@ -9,7 +9,7 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "deploy": "git push origin main && ssh root@172.16.1.115 \"cd Documentos/projects/intranet-deploy && echo '>>> ACTUALIZANDO FRONTEND...' && cd frontend && git pull origin main && echo '>>> ACTUALIZANDO BACKEND...' && cd ../backend && git pull origin main && cd .. && echo '>>> DESPLEGANDO TODO...' && docker compose up -d --build && docker image prune -f\"",
+    "deploy": "ssh root@172.16.1.115 \"cd Documentos/projects/intranet-deploy && echo '>>> ACTUALIZANDO FRONTEND...' && cd frontend && git pull origin main && echo '>>> ACTUALIZANDO BACKEND...' && cd ../backend && git pull origin main && cd .. && echo '>>> DESPLEGANDO TODO...' && docker compose up -d --build && docker image prune -f\"",
     "prepare": "husky"
   },
   "dependencies": {
