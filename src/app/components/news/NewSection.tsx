@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import HeaderTitle from '../ui/HeaderTitle';
-import NewsContent from './NewsContent';
+import HomeNewsContent from './HomeNewsContent';
 import NewsSkeleton from './NewsSkeleton';
 
 interface NewsSectionProps {
@@ -17,7 +17,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ tipoEvento = 1, seccion = 1, 
         <div className="flex h-full w-full rounded-[0px_0px_var(--demo-edublink-co-radius-4)_var(--demo-edublink-co-radius-4)] bg-white">
           <div className="relative mx-4 flex h-auto w-full flex-col items-start gap-7 py-4">
             <Suspense fallback={<NewsSkeleton />}>
-              <NewsContent tipoEvento={tipoEvento} seccion={seccion} tipSitio={tipSitio} />
+              <HomeNewsContent tipoEvento={tipoEvento} seccion={seccion} tipSitio={tipSitio} />
             </Suspense>
           </div>
         </div>
