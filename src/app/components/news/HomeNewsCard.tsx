@@ -12,8 +12,8 @@ const HomeNewsCard: React.FC<HomeNewsCardProps> = ({ news }) => {
   const slug = generateSlug(news.titulo, news.codigo);
 
   return (
-    <Link href={`/noticias/${slug}`} className="group flex w-full flex-col gap-3 bg-white">
-      <div className="relative h-40 w-full overflow-hidden rounded-lg">
+    <Link href={`/noticias/${slug}`} className="group flex w-full items-start gap-4 bg-white">
+      <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-lg">
         <AppImage
           src={news.dirImagen}
           alt={news.titulo}
@@ -21,7 +21,7 @@ const HomeNewsCard: React.FC<HomeNewsCardProps> = ({ news }) => {
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-      <div className="flex flex-col gap-1.5 px-1">
+      <div className="flex flex-col gap-1.5">
         <h4 className="line-clamp-2 font-['Poppins'] text-sm leading-tight font-semibold text-neutral-900 transition-colors group-hover:text-rose-800">
           {news.titulo}
         </h4>
