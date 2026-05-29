@@ -2,7 +2,6 @@ import HeaderTitle from '@/app/components/ui/HeaderTitle';
 import { ServiceCard } from '@/app/components/ui/ServiceCard';
 import {
   Key,
-  Laptop,
   FileText,
   Image,
   UserRound,
@@ -18,12 +17,6 @@ const SERVICES_DATA = [
     description: 'Cambia o desbloquea tu clave del SIU',
     icon: <Key className="h-6 w-6" />,
     href: process.env.NEXT_PUBLIC_CAMBIO_CLAVE_URL ?? '#',
-  },
-  {
-    title: 'Servicios en línea administrativos',
-    description: 'Servicios que ofrece a la UCSG',
-    icon: <Laptop className="h-6 w-6" />,
-    href: process.env.NEXT_PUBLIC_SERVICIOS_ADMIN_URL ?? '#',
   },
   {
     title: 'Transparencia de la información',
