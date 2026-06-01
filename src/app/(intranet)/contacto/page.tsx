@@ -8,7 +8,7 @@ async function getDirectory(): Promise<Unidad[]> {
     });
 
     if (!res.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error('Failed to fetch aaaaaaaaaaaaa');
     }
 
     const unidades: Unidad[] = await res.json();
