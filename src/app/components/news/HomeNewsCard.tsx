@@ -13,7 +13,7 @@ const HomeNewsCard: React.FC<HomeNewsCardProps> = ({ news }) => {
 
   return (
     <Link href={`/noticias/${slug}`} className="group flex w-full items-start gap-4 bg-white">
-      <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-lg">
+      <div className="relative h-[250px] w-38 shrink-0 overflow-hidden rounded-lg">
         <AppImage
           src={news.dirImagen}
           alt={news.titulo}
@@ -31,7 +31,7 @@ const HomeNewsCard: React.FC<HomeNewsCardProps> = ({ news }) => {
             {formatDate(news.fecInicio)}
           </span>
         </div>
-        <p className="line-clamp-3 font-['Poppins'] text-xs leading-snug font-normal text-zinc-500">
+        <p className="line-clamp-3 h-[165px] font-['Poppins'] text-xs leading-snug font-normal text-zinc-500">
           {news.descripcion}
         </p>
       </div>

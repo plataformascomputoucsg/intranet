@@ -48,7 +48,7 @@ const HomeNewsContent: React.FC<HomeNewsContentProps> = async ({
       {/* Grid 2 columnas */}
       {finalGrid.length > 0 && (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {finalGrid.slice(0, 4).map((news) => (
+          {finalGrid.slice(0, 2).map((news) => (
             <HomeNewsCard key={news.codigo} news={news} />
           ))}
         </div>

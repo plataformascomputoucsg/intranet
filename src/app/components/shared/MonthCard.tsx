@@ -6,11 +6,7 @@ interface MonthCardProps {
   onClick?: () => void;
 }
 
-const MonthCard: React.FC<MonthCardProps> = ({
-  month,
-  isActive = false,
-  onClick,
-}) => {
+const MonthCard: React.FC<MonthCardProps> = ({ month, isActive = false, onClick }) => {
   return (
     <div
       className="relative flex w-full cursor-pointer flex-col items-center gap-4"
@@ -19,9 +15,7 @@ const MonthCard: React.FC<MonthCardProps> = ({
     >
       <div
         className={`relative h-16 w-full rounded-lg outline -outline-offset-1 ${
-          isActive
-            ? 'bg-rose-800 outline-rose-800'
-            : 'bg-white outline-zinc-300'
+          isActive ? 'bg-rose-800 outline-rose-800' : 'bg-white outline-zinc-300'
         }`}
       >
         <div className="relative flex h-full w-full flex-col items-center justify-center gap-2.5 px-2">
@@ -37,14 +31,10 @@ const MonthCard: React.FC<MonthCardProps> = ({
 
       <div className="relative inline-flex items-center justify-center gap-[3px]">
         <div
-          className={`h-[5px] w-[5px] rounded-full ${
-            isActive ? 'bg-white' : 'bg-teal-400'
-          }`}
+          className={`h-[5px] w-[5px] rounded-full ${isActive ? 'bg-rose-800' : 'bg-teal-400'}`}
         />
         <div
-          className={`h-[5px] w-[5px] rounded-full ${
-            isActive ? 'bg-white' : 'bg-teal-400'
-          }`}
+          className={`h-[5px] w-[5px] rounded-full ${isActive ? 'bg-rose-800' : 'bg-teal-400'}`}
         />
       </div>
     </div>

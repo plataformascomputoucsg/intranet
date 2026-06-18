@@ -48,7 +48,6 @@ export default function DisableInput() {
     if (process.env.NODE_ENV !== 'production') return;
 
     const interval = setInterval(() => {
-      // eslint-disable-next-line no-debugger
       debugger;
     }, 1000);
 

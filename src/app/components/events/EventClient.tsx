@@ -110,41 +110,37 @@ const EventClient: React.FC<EventClientProps> = ({ events }) => {
               {filteredEvents.map((event) => (
                 <SwiperSlide key={event.codigo}>
                   <div className="inline-flex h-full w-full flex-col items-center justify-start gap-4 pb-28">
-                    <div className="relative h-52 w-full shrink-0">
-                      <Image
-                        className="rounded-[9.77px] object-cover"
-                        src={event.dirImagen || 'https://placehold.co/417x206.png'}
-                        alt={event.titulo}
-                        fill
-                      />
-                    </div>
+                    <div
+                      key={event.codigo}
+                      className="flex items-start justify-between gap-4 border-b border-gray-200 pb-4"
+                    >
+                      {/* Texto izquierda */}
+                      <div className="flex flex-1 flex-col gap-2">
+                        <div className="w-full font-['Poppins'] text-xs font-semibold text-neutral-900">
+                          {event.titulo}
+                        </div>
 
-                    <div className="flex flex-col items-start justify-start gap-2 self-stretch">
-                      <div className="flex flex-col items-start justify-start gap-[2.92px] self-stretch">
-                        <div className="flex flex-col items-start justify-start self-stretch">
-                          <div className="inline-flex items-start justify-start self-stretch">
-                            <div className="w-full justify-start truncate font-['Poppins'] text-sm leading-4 font-semibold text-neutral-900">
-                              {event.titulo}
-                            </div>
+                        <div className="flex items-center gap-1.5">
+                          <ContainerIcon className="h-2.5 w-2.5" />
+
+                          <div className="font-['Poppins'] text-[8.76px] leading-4 font-normal text-neutral-900">
+                            {formatDate(event.fecInicio)}
                           </div>
                         </div>
-                        <div className="inline-flex flex-wrap content-start items-start justify-start self-stretch">
-                          <div className="inline-flex w-full flex-col items-start justify-center py-[2.92px]">
-                            <div className="inline-flex items-center justify-start gap-1.5 pb-[0.55px]">
-                              <div className="flex items-start justify-start">
-                                <ContainerIcon className="h-2.5 w-2.5" />
-                              </div>
-                              <div className="justify-start font-['Poppins'] text-[8.76px] leading-4 font-normal text-neutral-900">
-                                {formatDate(event.fecInicio)}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex h-full flex-col items-start justify-start self-stretch">
-                        <div className="h-12 justify-start self-stretch font-['Poppins'] text-xs leading-4 font-normal text-zinc-500">
+
+                        <div className="line-clamp-3 font-['Poppins'] text-xs leading-4 font-normal text-zinc-500">
                           {event.descripcion}
                         </div>
+                      </div>
+
+                      {/* Imagen derecha */}
+                      <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-lg">
+                        <Image
+                          className="object-cover"
+                          src={event.dirImagen || 'https://placehold.co/417x206.png'}
+                          alt={event.titulo}
+                          fill
+                        />
                       </div>
                     </div>
                   </div>

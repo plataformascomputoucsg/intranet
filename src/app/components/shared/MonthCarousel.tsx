@@ -108,7 +108,7 @@ const MonthCarousel: React.FC<MonthCarouselProps> = ({
   };
 
   return (
-    <div className="group relative flex h-28 w-full items-center rounded-lg bg-[#FFFFFF] px-8">
+    <div className="group relative flex h-28 w-full items-center rounded-lg bg-[#E5E4DA] px-8">
       {/* Custom Navigation Buttons */}
       <button
         onClick={scrollPrev}

@@ -12,7 +12,7 @@ export default async function Home() {
       </div>
 
       {/* Right Column - Events & Birthdays */}
-      <div className="flex w-full flex-col gap-[27px] lg:w-1/3">
+      <div className="flex h-[430px] w-full flex-col gap-[27px] lg:w-1/3">
         <EventsSection />
         <BirthdayTodayWidget />
       </div>
