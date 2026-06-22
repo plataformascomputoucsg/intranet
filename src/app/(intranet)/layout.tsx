@@ -11,7 +11,7 @@ export default function IntranetLayout({ children }: { children: React.ReactNode
       <TopBar />
       <Header />
       <NavBar />
-      <div className="relative z-10 mx-4 mb-8 flex grow flex-col items-start gap-[22px] xl:mx-[10%]">
+      <div className="relative z-10 mx-4 -mt-8 mb-8 flex grow flex-col items-start gap-[22px] xl:mx-[10%]">
         {children}
       </div>
       <Footer />

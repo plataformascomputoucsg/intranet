@@ -11,10 +11,10 @@ import Link from 'next/link';
 const TopBar: React.FC = () => {
   return (
     <>
-      <div className="bg-ucsg-primary flex h-16 w-full justify-end">
+      <div className="bg-ucsg-primary flex h-3 w-full justify-end">
         <div
-          className="inline-flex h-20 w-[612px] items-center justify-center gap-8 bg-neutral-900"
-          style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 30px 100%)' }}
+          className="inline-flex h-[50px] w-[612px] items-center justify-center gap-8 bg-neutral-900"
+          style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50px 100%)' }}
         >
           <div className="inline-flex items-start justify-start gap-8">
             <Link href="https://www.facebook.com/UCSGye" target="_blank" rel="noopener noreferrer">

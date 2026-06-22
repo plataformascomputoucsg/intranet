@@ -13,7 +13,7 @@ const HomeNewsCard: React.FC<HomeNewsCardProps> = ({ news }) => {
 
   return (
     <Link href={`/noticias/${slug}`} className="group flex w-full items-start gap-4 bg-white">
-      <div className="relative h-[250px] w-38 shrink-0 overflow-hidden rounded-lg">
+      <div className="relative h-[200px] w-38 shrink-0 overflow-hidden rounded-lg">
         <AppImage
           src={news.dirImagen}
           alt={news.titulo}

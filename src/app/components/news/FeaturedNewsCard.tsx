@@ -17,7 +17,7 @@ const FeaturedNewsCard: React.FC<FeaturedNewsCardProps> = ({ news }) => {
       href={`/noticias/${slug}`}
       className="group flex h-auto w-full shrink-0 flex-col gap-6 bg-white md:flex-row"
     >
-      <div className="relative h-[300px] w-full overflow-hidden rounded-lg md:w-1/2">
+      <div className="relative h-[280px] w-full overflow-hidden rounded-lg md:w-1/2">
         <Image
           src={news.dirImagen}
           alt={news.titulo}
