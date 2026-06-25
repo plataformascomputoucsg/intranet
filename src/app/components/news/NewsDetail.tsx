@@ -23,7 +23,7 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
       <div className="inline-flex w-full flex-col items-start justify-start gap-8">
         <div className="flex flex-col items-start justify-start gap-6 self-stretch">
           <div className="flex flex-col items-start justify-start gap-4 self-stretch">
-            <div className="justify-start self-stretch font-['Helvetica'] text-3xl leading-10 font-bold text-zinc-900">
+            <div className="justify-start self-stretch font-['Poppins'] text-3xl leading-10 font-bold text-zinc-900">
               {news.titulo}
             </div>
             <div className="inline-flex flex-col items-center justify-between gap-4 self-stretch sm:flex-row sm:gap-0">
@@ -31,7 +31,7 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
                 {news.categoria && (
                   <div className="flex items-center justify-center gap-1.5">
                     <Layers className="h-6 w-6 text-rose-800" />
-                    <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
+                    <div className="justify-start font-['Poppins'] text-sm leading-5 font-normal text-neutral-600">
                       {news.categoria}
                     </div>
                   </div>
@@ -117,7 +117,7 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
 
         {news.detalleDesc && (
           <div
-            className="justify-start self-stretch font-['Helvetica'] text-lg leading-6 font-normal whitespace-pre-wrap text-neutral-600 [&_a]:text-rose-800 [&_a]:underline hover:[&_a]:text-rose-900"
+            className="justify-start self-stretch font-['Poppins'] text-base leading-6 font-normal whitespace-pre-wrap text-neutral-600 [&_a]:text-rose-800 [&_a]:underline hover:[&_a]:text-rose-900"
             dangerouslySetInnerHTML={{ __html: news.detalleDesc }}
           />
         )}

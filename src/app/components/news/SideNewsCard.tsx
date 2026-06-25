@@ -25,7 +25,7 @@ const SideNewsCard: React.FC<SideNewsCardProps> = ({ news }) => {
         />
       </div>
       <div className="flex flex-col gap-2">
-        <h4 className="line-clamp-2 font-['Helvetica'] text-sm leading-tight font-bold text-zinc-900 transition-colors group-hover:text-rose-800">
+        <h4 className="line-clamp-2 font-['Poppins'] text-sm leading-tight font-bold text-zinc-900 transition-colors group-hover:text-rose-800">
           {news.titulo}
         </h4>
         <div className="flex items-center gap-1.5 text-xs text-zinc-500">

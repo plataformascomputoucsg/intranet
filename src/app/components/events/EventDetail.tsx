@@ -29,7 +29,7 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
       <div className="inline-flex w-full flex-col items-start justify-start gap-8">
         <div className="flex flex-col items-start justify-start gap-6 self-stretch">
           <div className="flex flex-col items-start justify-start gap-4 self-stretch">
-            <div className="justify-start self-stretch font-['Helvetica'] text-3xl leading-10 font-bold text-zinc-900">
+            <div className="justify-start self-stretch font-['Poppins'] text-3xl leading-10 font-bold text-zinc-900">
               {event.titulo}
             </div>
             <div className="inline-flex items-center justify-between self-stretch">
@@ -37,7 +37,7 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
                 {event.categoria && (
                   <div className="flex items-center justify-center gap-1.5">
                     <Layers className="h-6 w-6 text-rose-800" />
-                    <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
+                    <div className="justify-start font-['Poppins'] text-sm leading-5 font-normal text-neutral-600">
                       {event.categoria}
                     </div>
                   </div>

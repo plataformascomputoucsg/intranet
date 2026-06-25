@@ -54,7 +54,7 @@ const BottomNewsContent: React.FC<BottomNewsContentProps> = async ({
 
           <Link
             href={`/noticias/${slug}`}
-            className="flex w-fit items-center gap-2 text-base font-medium text-white hover:underline"
+            className="flex w-fit items-center gap-2 font-[Poppins] text-base font-medium text-white hover:underline"
           >
             Leer más <ChevronIcon className="h-5 w-5 text-white" />
           </Link>
@@ -69,7 +69,7 @@ const BottomNewsContent: React.FC<BottomNewsContentProps> = async ({
         </span>
 
         {/* Title */}
-        <h3 className="font-['Spartan'] text-2xl leading-8 font-semibold text-black lg:text-3xl">
+        <h3 className="font-['Poppins'] text-2xl leading-8 font-semibold text-black lg:text-3xl">
           {news.titulo}
         </h3>
 

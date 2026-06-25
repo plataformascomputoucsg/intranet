@@ -30,7 +30,7 @@ const MediumNewsCard: React.FC<MediumNewsCardProps> = ({ news }) => {
           {news.titulo}
         </h3>
 
-        <p className="line-clamp-3 text-xs leading-snug font-normal text-zinc-500">
+        <p className="line-clamp-3 font-['Poppins'] text-xs leading-snug font-normal text-zinc-500">
           {news.descripcion}
         </p>
 
