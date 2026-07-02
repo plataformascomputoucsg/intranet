@@ -27,7 +27,7 @@ const BirthdayHomepageCard: React.FC<BirthdayHomepageCardProps> = React.memo(({ 
         {people.map((person, index) => (
           <div key={index} className="flex w-full min-w-0 items-center justify-between">
             <div
-              className="mr-2 flex-1 truncate font-['Poppins'] text-[15px] leading-none font-normal text-neutral-800 capitalize"
+              className="mr-2 flex-1 truncate font-['Poppins'] text-[15px] leading-none font-normal text-neutral-600 capitalize"
               title={person.nombre}
             >
               {person.nombre.toLowerCase()}

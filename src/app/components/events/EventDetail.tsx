@@ -45,14 +45,14 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
                 {event.descOrganiza && (
                   <div className="flex items-center justify-center gap-1.5">
                     <CircleUserRound className="h-6 w-6 text-rose-800" />
-                    <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
+                    <div className="justify-start font-['Poppins'] text-sm leading-5 font-normal text-neutral-600">
                       {event.descOrganiza}
                     </div>
                   </div>
                 )}
                 <div className="flex items-center justify-center gap-1.5">
                   <Calendar className="h-6 w-6 text-rose-800" />
-                  <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
+                  <div className="justify-start font-['Poppins'] text-sm leading-5 font-normal text-neutral-600">
                     {formatDate(event.fecInicio, 'long')}
                   </div>
                 </div>
@@ -107,7 +107,7 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
             </div>
           </div>
         </div>
-        <div className="justify-start self-stretch font-['Helvetica'] text-lg leading-6 font-normal text-neutral-600">
+        <div className="justify-start self-stretch font-['Poppins'] text-lg leading-6 font-normal text-neutral-600">
           {event.descripcion}
         </div>
       </div>

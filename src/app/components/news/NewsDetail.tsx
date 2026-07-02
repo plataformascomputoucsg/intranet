@@ -40,14 +40,14 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
                 {news.descOrganiza && (
                   <div className="flex items-center justify-center gap-1.5">
                     <CircleUserRound className="h-6 w-6 text-rose-800" />
-                    <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
+                    <div className="justify-start font-['Poppins'] text-sm leading-5 font-normal text-neutral-600">
                       {news.descOrganiza}
                     </div>
                   </div>
                 )}
                 <div className="flex items-center justify-center gap-1.5">
                   <Calendar className="h-6 w-6 text-rose-800" />
-                  <div className="justify-start font-['Helvetica'] text-sm leading-5 font-normal text-neutral-600">
+                  <div className="justify-start font-['Poppins'] text-sm leading-5 font-normal text-neutral-600">
                     {formatDate(news.fecInicio, 'long')}
                   </div>
                 </div>
@@ -109,7 +109,7 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
         {news.highlight && (
           <div className="inline-flex items-start justify-start gap-6 self-stretch bg-rose-800/10 p-10 shadow-[inset_4px_0px_0px_0px_rgba(169,0,70,1.00)]">
             <Quote className="h-14 w-14 text-rose-800" />
-            <div className="w-3/4 justify-start font-['Helvetica'] text-xl leading-7 font-normal text-zinc-900">
+            <div className="w-3/4 justify-start font-['Poppins'] text-xl leading-7 font-normal text-zinc-900">
               {news.highlight}
             </div>
           </div>

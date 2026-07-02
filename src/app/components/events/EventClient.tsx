@@ -128,7 +128,7 @@ const EventClient: React.FC<EventClientProps> = ({ events }) => {
                           </div>
                         </div>
 
-                        <div className="line-clamp-3 font-['Poppins'] text-xs leading-4 font-normal text-zinc-500">
+                        <div className="line-clamp-3 font-['Poppins'] text-xs leading-4 font-normal text-zinc-600">
                           {event.descripcion}
                         </div>
                       </div>
