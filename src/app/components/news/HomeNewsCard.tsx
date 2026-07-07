@@ -31,7 +31,7 @@ const HomeNewsCard: React.FC<HomeNewsCardProps> = ({ news }) => {
             {formatDate(news.fecInicio)}
           </span>
         </div>
-        <p className="line-clamp-3 h-[165px] font-['Poppins'] text-xs leading-snug font-normal text-zinc-600">
+        <p className="line-clamp-3 h-[150px] font-['Poppins'] text-xs leading-snug font-normal text-zinc-600">
           {news.descripcion}
         </p>
       </div>

@@ -35,8 +35,25 @@ export default async function BirthdayTodayWidget() {
         {todayBirthdays.length > 0 ? (
           <BirthdayHomepageCard people={todayBirthdays} />
         ) : (
-          <div className="w-full py-4 text-center font-['Poppins'] text-sm text-gray-500">
-            No hay cumpleaños registrados para hoy.
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 py-2 text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="mx-auto h-12 w-12"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 3c0 1-1 1.5-1 2.5S12 7 12 8s1-1 1-2-1-1.5-1-3Zm-6 7h12M7 10v8m10-8v8M5 18h14v2H5v-2Zm1-8h12l-1 8H7l-1-8Z"
+              />
+            </svg>
+
+            <p className="font-['Poppins'] text-sm font-medium">
+              No hay cumpleaños para esta fecha.
+            </p>
           </div>
         )}
       </div>

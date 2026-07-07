@@ -134,7 +134,7 @@ const EventMainClient: React.FC<EventMainClientProps> = ({ events }) => {
               d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
             />
           </svg>
-          <p className="font-['Poppins'] text-sm font-medium">No hay eventos para esta fecha</p>
+          <p className="font-['Poppins'] text-sm font-medium">No hay eventos para esta fecha.</p>
         </div>
       ) : (
         <div className="grid w-full grid-cols-3 gap-x-[15px] gap-y-[30px] pr-4 pb-10">

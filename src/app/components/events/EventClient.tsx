@@ -79,7 +79,7 @@ const EventClient: React.FC<EventClientProps> = ({ events }) => {
 
       <div className="relative flex min-h-0 w-full flex-1 flex-col items-center justify-center gap-4">
         {filteredEvents.length === 0 ? (
-          <div className="flex h-full w-full flex-col items-center justify-center gap-2 py-10 text-gray-400">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 py-6 text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-12 w-12"
@@ -94,7 +94,7 @@ const EventClient: React.FC<EventClientProps> = ({ events }) => {
                 d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
               />
             </svg>
-            <p className="font-['Poppins'] text-sm font-medium">No hay eventos para esta fecha</p>
+            <p className="font-['Poppins'] text-sm font-medium">No hay eventos para esta fecha.</p>
           </div>
         ) : (
           <ClientOnly>
@@ -105,7 +105,7 @@ const EventClient: React.FC<EventClientProps> = ({ events }) => {
               slidesPerView={1}
               autoplay={{ delay: 5000, disableOnInteraction: false }}
               pagination={{ clickable: true }}
-              className="h-full w-full pb-10 [&_.swiper-pagination]:bottom-0! [&_.swiper-pagination-bullet]:h-3! [&_.swiper-pagination-bullet]:w-3! [&_.swiper-pagination-bullet]:bg-zinc-300! [&_.swiper-pagination-bullet]:opacity-100! [&_.swiper-pagination-bullet-active]:bg-rose-700!"
+              className="h-[160px] w-full pb-2 [&_.swiper-pagination]:bottom-0! [&_.swiper-pagination-bullet]:h-3! [&_.swiper-pagination-bullet]:w-3! [&_.swiper-pagination-bullet]:bg-zinc-300! [&_.swiper-pagination-bullet]:opacity-100! [&_.swiper-pagination-bullet-active]:bg-rose-700!"
             >
               {filteredEvents.map((event) => (
                 <SwiperSlide key={event.codigo}>

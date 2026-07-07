@@ -23,7 +23,7 @@ const BirthdayHomepageCard: React.FC<BirthdayHomepageCardProps> = React.memo(({ 
       </div>
 
       {/* People List */}
-      <div className="mt-1 flex min-w-0 flex-1 flex-col items-stretch justify-start gap-3.5">
+      <div className="mt-1 flex min-w-0 flex-1 flex-col items-stretch justify-start gap-1.5">
         {people.map((person, index) => (
           <div key={index} className="flex w-full min-w-0 items-center justify-between">
             <div
