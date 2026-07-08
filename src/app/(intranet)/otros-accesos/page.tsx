@@ -1,15 +1,6 @@
 import HeaderTitle from '@/app/components/ui/HeaderTitle';
 import { ServiceCard } from '@/app/components/ui/ServiceCard';
-import {
-  Key,
-  FileText,
-  Image,
-  UserRound,
-  Download,
-  BookOpen,
-  ShieldCheck,
-  ClipboardList,
-} from 'lucide-react';
+import { Key, FileText, Image, Download, BookOpen, ShieldCheck, ClipboardList } from 'lucide-react';
 
 const SERVICES_DATA = [
   {
@@ -29,12 +20,6 @@ const SERVICES_DATA = [
     description: 'Fotos de los eventos de interés',
     icon: <Image className="h-6 w-6" />,
     href: '/galeria',
-  },
-  {
-    title: 'Solicitud de usuario',
-    description: 'Recupera la clave de tu cuenta del SIU',
-    icon: <UserRound className="h-6 w-6" />,
-    href: process.env.NEXT_PUBLIC_SOLICITUD_USUARIO_URL ?? '#',
   },
   {
     title: 'Descarga de documentos',

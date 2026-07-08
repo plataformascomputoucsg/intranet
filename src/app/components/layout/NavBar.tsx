@@ -62,6 +62,12 @@ const NavBar: FC = () => {
         >
           Servicios en línea administrativos
         </Link>
+        <Link
+          href={process.env.NEXT_PUBLIC_CORREO_URL ?? '#'}
+          className="flex h-full cursor-pointer items-center justify-center font-['Poppins'] text-[10px] font-bold whitespace-nowrap hover:text-gray-300 sm:text-xs lg:text-sm"
+        >
+          Correo
+        </Link>
 
         <Link
           href="/otros-accesos"
