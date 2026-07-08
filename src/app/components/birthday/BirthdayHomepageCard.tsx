@@ -24,14 +24,15 @@ const BirthdayHomepageCard: React.FC<BirthdayHomepageCardProps> = React.memo(({ 
 
       {/* People List */}
       <div className="mt-1 flex min-w-0 flex-1 flex-col items-stretch justify-start gap-1.5">
-        {people.map((person, index) => (
+        {people.slice(0, 3).map((person, index) => (
           <div key={index} className="flex w-full min-w-0 items-center justify-between">
             <div
-              className="mr-2 flex-1 truncate font-['Poppins'] text-[15px] leading-none font-normal text-neutral-600 capitalize"
+              className="mr-2 flex-1 truncate font-['Poppins'] text-[14px] leading-none font-normal text-neutral-600 capitalize"
               title={person.nombre}
             >
               {person.nombre.toLowerCase()}
             </div>
+
             {person.correo && (
               <a
                 href={createBirthdayMail(person.correo, person.nombre)}
