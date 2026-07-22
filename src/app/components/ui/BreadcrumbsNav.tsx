@@ -19,7 +19,7 @@ export default function BreadcrumbsNav({ items }: { items?: { label: string; hre
           </div>
         </BreadcrumbItem>
         {items?.map((item, index) => (
-          <BreadcrumbItem key={`${item.label}-${index}`} href={item.href}>
+          <BreadcrumbItem key={`${item.label}-${index}`} {...(item.href && { href: item.href })}>
             <span className="font-['Poppins'] text-black">{item.label}</span>
           </BreadcrumbItem>
         ))}

@@ -9,8 +9,15 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ title, description, icon, href }: ServiceCardProps) {
+  const isExternal = !href.startsWith('/');
+
   return (
-    <Link href={href} target="_blank" rel="noopener noreferrer" className="group">
+    <Link
+      href={href}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+      className="group"
+    >
       <div className="relative mb-10 flex h-40 w-60 flex-col items-start justify-center gap-2 rounded-[20px] border border-zinc-500/40 bg-white p-[26px] transition-all hover:shadow-md">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#a90046]/10">
           <div className="flex h-6 w-6 items-center justify-center text-rose-800">{icon}</div>

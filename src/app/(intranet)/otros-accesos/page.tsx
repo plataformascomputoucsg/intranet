@@ -1,13 +1,22 @@
 import HeaderTitle from '@/app/components/ui/HeaderTitle';
 import { ServiceCard } from '@/app/components/ui/ServiceCard';
-import { Key, FileText, Image, Download, BookOpen, ShieldCheck, ClipboardList } from 'lucide-react';
+import {
+  Key,
+  FileText,
+  Image,
+  UserRound,
+  Download,
+  BookOpen,
+  ShieldCheck,
+  ClipboardList,
+} from 'lucide-react';
 
 const SERVICES_DATA = [
   {
     title: 'Cambio de clave SIU',
     description: 'Cambia o desbloquea tu clave del SIU',
     icon: <Key className="h-6 w-6" />,
-    href: process.env.NEXT_PUBLIC_CAMBIO_CLAVE_URL ?? '#',
+    href: '/otros-accesos/cambio-clave',
   },
   {
     title: 'Transparencia de la información',
@@ -22,10 +31,16 @@ const SERVICES_DATA = [
     href: '/galeria',
   },
   {
+    title: 'Solicitud de usuario',
+    description: 'Recupera la clave de tu cuenta del SIU',
+    icon: <UserRound className="h-6 w-6" />,
+    href: '/otros-accesos/solicitud-usuario',
+  },
+  {
     title: 'Descarga de documentos',
     description: 'Encuentra documentos varios de acceso al sistema',
     icon: <Download className="h-6 w-6" />,
-    href: process.env.NEXT_PUBLIC_DESCARGA_DOCUMENTOS_URL ?? '#',
+    href: '/otros-accesos/descargas',
   },
   {
     title: 'Manuales de gestión administrativa',
