@@ -46,7 +46,7 @@ const BirthdayMainSection: React.FC<BirthdayMainSectionProps> = ({
 
   return (
     <div className="relative flex w-full flex-col items-start gap-[15px]">
-      <div className="relative z-0 flex min-h-[635px] w-full flex-col overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_30px_#00000012] lg:flex-row">
+      <div className="relative z-0 flex min-h-[635px] w-full flex-col overflow-hidden rounded-[20px] bg-white shadow-[0px_10px_30px_#00000086] lg:flex-row">
         <ClientOnly>
           <BirthdayBackground />
         </ClientOnly>

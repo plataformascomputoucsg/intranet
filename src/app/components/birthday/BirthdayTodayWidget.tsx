@@ -31,7 +31,7 @@ export default async function BirthdayTodayWidget() {
     <div className="relative flex w-full flex-col items-stretch gap-[15px]">
       <HeaderTitle titleFirstWorld="Cumpleaños del" titleSecondWorld="DÍA" link="/cumpleanios" />
 
-      <div className="relative flex w-full flex-col items-start gap-4 rounded-[20px] bg-white p-6 shadow-[0px_10px_30px_#00000012]">
+      <div className="relative flex w-full flex-col items-start gap-4 rounded-[20px] bg-white p-6 shadow-[0px_10px_30px_#00000086]">
         {todayBirthdays.length > 0 ? (
           <BirthdayHomepageCard people={todayBirthdays} />
         ) : (

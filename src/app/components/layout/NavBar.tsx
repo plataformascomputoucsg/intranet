@@ -60,10 +60,12 @@ const NavBar: FC = () => {
           rel="noopener noreferrer"
           className="flex h-full cursor-pointer items-center justify-center font-['Poppins'] text-[10px] font-bold whitespace-nowrap hover:text-gray-300 sm:text-xs lg:text-sm"
         >
-          Servicios en línea administrativos
+          Servicios en línea
         </Link>
         <Link
           href={process.env.NEXT_PUBLIC_CORREO_URL ?? '#'}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex h-full cursor-pointer items-center justify-center font-['Poppins'] text-[10px] font-bold whitespace-nowrap hover:text-gray-300 sm:text-xs lg:text-sm"
         >
           Correo
