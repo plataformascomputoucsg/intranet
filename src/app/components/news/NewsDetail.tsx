@@ -17,7 +17,15 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news }) => {
   return (
     <div className="relative flex w-full flex-col items-center gap-8 rounded-[20px] rounded-bl bg-white p-8">
       <div className="relative h-[400px] w-full overflow-hidden rounded-[3px] md:h-[600px]">
-        <Image className="object-cover" src={news.dirImagen} alt={news.titulo} fill priority />
+        <Image
+          className="object-cover"
+          src={news.dirImagen}
+          alt={news.titulo}
+          fill
+          priority
+          quality={100}
+          sizes="100vw"
+        />
       </div>
 
       <div className="inline-flex w-full flex-col items-start justify-start gap-8">

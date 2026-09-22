@@ -23,6 +23,8 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
           alt={event.titulo}
           fill
           priority
+          quality={100}
+          sizes="100vw"
         />
       </div>
 
